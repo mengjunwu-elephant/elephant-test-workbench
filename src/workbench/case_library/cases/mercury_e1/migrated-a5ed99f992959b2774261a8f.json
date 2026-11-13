@@ -1,0 +1,97 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "set_tool_serial_baud_rate",
+      "expect_data": 1,
+      "parameter": 115200,
+      "test_type": "normal",
+      "title": "正确设置末端485波特率"
+    },
+    {
+      "ID": 2,
+      "api": "set_tool_serial_baud_rate",
+      "expect_data": 1,
+      "parameter": 1000000,
+      "test_type": "normal",
+      "title": "正确设置末端485波特率"
+    },
+    {
+      "ID": 3,
+      "api": "set_tool_serial_baud_rate",
+      "expect_data": null,
+      "parameter": 9600,
+      "test_type": "exception",
+      "title": "设置末端485波特率超限"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-a5ed99f992959b2774261a8f",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "parameter",
+      "expect_data",
+      "test_type"
+    ],
+    "original_model": "mercury_e1",
+    "python_files": [
+      "testcases/mercury_e1/test_68_set_tool_serial_baud_rate.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4
+    ],
+    "sheet": "set_tool_serial_baud_rate",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/MercuryE1Base.txt",
+      "sources/testcases/mercury_e1/test_68_set_tool_serial_baud_rate.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_set_tool_serial_baud_rate1",
+      "test_set_tool_serial_baud_rate_exception"
+    ],
+    "workbook": "mercury_e1.xlsx"
+  },
+  "model": "mercury_e1",
+  "name": "mercury_e1 / set_tool_serial_baud_rate",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

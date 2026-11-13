@@ -1,0 +1,96 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "angles": "[0,0,0,0,0,0]",
+      "api": "get_hand_gripper_angle",
+      "expect_data": 0,
+      "test_type": "normal",
+      "title": "正确获取全关节角度"
+    },
+    {
+      "ID": 2,
+      "angles": "[10,10,10,10,10,10]",
+      "api": "get_hand_gripper_angle",
+      "expect_data": 0,
+      "test_type": "normal",
+      "title": "正确获取全关节角度"
+    },
+    {
+      "ID": 3,
+      "angles": "[30,30,30,30,30,30]",
+      "api": "get_hand_gripper_angle",
+      "expect_data": 0,
+      "test_type": "normal",
+      "title": "正确获取全关节角度"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-52523677fbaa3202a8a28fff",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "angles",
+      "expect_data",
+      "test_type"
+    ],
+    "original_model": "mercury_my_hand",
+    "python_files": [
+      "testcases/mercury_my_hand/test_get_hand_gripper_angles.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4
+    ],
+    "sheet": "get_hand_gripper_angles",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/MercuryBase.txt",
+      "sources/testcases/mercury_my_hand/test_get_hand_gripper_angles.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_get_hand_gripper_angles"
+    ],
+    "workbook": "mercury_my_hand.xlsx"
+  },
+  "model": "mercury",
+  "name": "mercury_my_hand / get_hand_gripper_angles",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

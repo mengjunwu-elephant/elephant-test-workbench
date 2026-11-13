@@ -1,0 +1,102 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "get_limit_switch",
+      "l_expect_data": "[1,1]",
+      "parameter": null,
+      "r_expect_data": "[1,1]",
+      "test_type": "power_on",
+      "title": "正确获取限位开关"
+    },
+    {
+      "ID": 2,
+      "api": "get_limit_switch",
+      "l_expect_data": null,
+      "parameter": null,
+      "r_expect_data": null,
+      "test_type": "power_on_only",
+      "title": "仅上电获取限位开关"
+    },
+    {
+      "ID": 3,
+      "api": "get_limit_switch",
+      "l_expect_data": null,
+      "parameter": null,
+      "r_expect_data": null,
+      "test_type": "power_off",
+      "title": "断电获取限位开关"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-2fc8f82eacf6e46601abd437",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "parameter",
+      "l_expect_data",
+      "r_expect_data",
+      "test_type"
+    ],
+    "original_model": "mercury",
+    "python_files": [
+      "testcases/mercury/test_6_get_limit_switch.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4
+    ],
+    "sheet": "get_limit_switch",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/MercuryBase.txt",
+      "sources/testcases/mercury/test_6_get_limit_switch.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_get_limit_switch_power_off",
+      "test_get_limit_switch_power_on",
+      "test_get_limit_switch_power_on_only"
+    ],
+    "workbook": "mercury.xlsx"
+  },
+  "model": "mercury",
+  "name": "mercury / get_limit_switch",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

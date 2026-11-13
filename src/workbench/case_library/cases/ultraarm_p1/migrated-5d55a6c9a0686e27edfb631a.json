@@ -1,0 +1,152 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "set_gripper_angle",
+      "expect_data": 1,
+      "speed": 100,
+      "test_type": "normal",
+      "title": "设置夹爪角度",
+      "value": 30
+    },
+    {
+      "ID": 2,
+      "api": "set_gripper_angle",
+      "expect_data": 1,
+      "speed": 50,
+      "test_type": "normal",
+      "title": "设置夹爪角度",
+      "value": 60
+    },
+    {
+      "ID": 3,
+      "api": "set_gripper_angle",
+      "expect_data": 1,
+      "speed": 60,
+      "test_type": "normal",
+      "title": "设置夹爪角度",
+      "value": 90
+    },
+    {
+      "ID": 4,
+      "api": "set_gripper_angle",
+      "expect_data": 1,
+      "speed": 80,
+      "test_type": "normal",
+      "title": "设置夹爪角度",
+      "value": 100
+    },
+    {
+      "ID": 5,
+      "api": "set_gripper_angle",
+      "expect_data": null,
+      "speed": 60,
+      "test_type": "exception",
+      "title": "设置夹爪角度（角度超限）",
+      "value": 101
+    },
+    {
+      "ID": 6,
+      "api": "set_gripper_angle",
+      "expect_data": null,
+      "speed": 80,
+      "test_type": "exception",
+      "title": "设置夹爪角度（角度超限）",
+      "value": -1
+    },
+    {
+      "ID": 7,
+      "api": "set_gripper_angle",
+      "expect_data": null,
+      "speed": 101,
+      "test_type": "exception",
+      "title": "设置夹爪角度（速度超限）",
+      "value": 100
+    },
+    {
+      "ID": 8,
+      "api": "set_gripper_angle",
+      "expect_data": null,
+      "speed": 0,
+      "test_type": "exception",
+      "title": "设置夹爪角度（速度超限）",
+      "value": 0
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-5d55a6c9a0686e27edfb631a",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "value",
+      "speed",
+      "expect_data",
+      "test_type"
+    ],
+    "original_model": "UltraArm_P1_Attachments",
+    "python_files": [
+      "testcases/UltraArm_P1_Attachments/test_set_gripper_angle.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "sheet": "set_gripper_angle",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/UltraArmP1Base.txt",
+      "sources/testcases/UltraArm_P1_Attachments/conftest.py.txt",
+      "sources/testcases/UltraArm_P1_Attachments/test_set_gripper_angle.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_set_gripper_angle_exception",
+      "test_set_gripper_angle_normal"
+    ],
+    "workbook": "UltraArm_P1_Attachments.xlsx"
+  },
+  "model": "ultraarm_p1",
+  "name": "UltraArm_P1_Attachments / set_gripper_angle",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

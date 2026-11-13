@@ -1,0 +1,94 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "solve_inv_kinematics",
+      "l_expect_data": "[0.001, 18.588, 0.0, -80.417, -0.009, 79.005, 0.0]",
+      "parameter": "[322.5, 0.0, 200.3, 179.99, 20.0, 0.0]",
+      "parameter_1": "[0,20,0,-90,0,90,0]",
+      "r_expect_data": "[0.001, 18.588, 0.0, -80.417, -0.009, 79.005, 0.0]",
+      "test_type": "normal",
+      "title": "正确获取机械臂运动学逆解"
+    },
+    {
+      "ID": 2,
+      "api": "solve_inv_kinematics",
+      "l_expect_data": null,
+      "parameter": "[322.5, 0.0, 200.3, 179.99, 20.0, 0.0]",
+      "parameter_1": "[166,20,0,-90,0,90,0]",
+      "r_expect_data": null,
+      "test_type": "exception",
+      "title": "设置逆解位置超限"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-3e4f32e86753e878341f08e5",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "parameter",
+      "parameter_1",
+      "l_expect_data",
+      "r_expect_data",
+      "test_type"
+    ],
+    "original_model": "mercury",
+    "python_files": [
+      "testcases/mercury/test_102_solve_inv_kinematics.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3
+    ],
+    "sheet": "solve_inv_kinematics",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/MercuryBase.txt",
+      "sources/testcases/mercury/test_102_solve_inv_kinematics.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_solve_inv_kinematics_exception",
+      "test_solve_inv_kinematics_normal"
+    ],
+    "workbook": "mercury.xlsx"
+  },
+  "model": "mercury",
+  "name": "mercury / solve_inv_kinematics",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

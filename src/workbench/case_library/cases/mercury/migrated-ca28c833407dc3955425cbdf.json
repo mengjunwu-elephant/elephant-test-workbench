@@ -1,0 +1,211 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "set_hand_gripper_speed",
+      "expect_data": 1,
+      "joint": 1,
+      "parameter": 50,
+      "test_type": "normal",
+      "title": "设置1关节speed值"
+    },
+    {
+      "ID": 2,
+      "api": "set_hand_gripper_speed",
+      "expect_data": 1,
+      "joint": 2,
+      "parameter": 50,
+      "test_type": "normal",
+      "title": "设置2关节speed值"
+    },
+    {
+      "ID": 3,
+      "api": "set_hand_gripper_speed",
+      "expect_data": 1,
+      "joint": 3,
+      "parameter": 50,
+      "test_type": "normal",
+      "title": "设置3关节speed值"
+    },
+    {
+      "ID": 4,
+      "api": "set_hand_gripper_speed",
+      "expect_data": 1,
+      "joint": 4,
+      "parameter": 50,
+      "test_type": "normal",
+      "title": "设置4关节speed值"
+    },
+    {
+      "ID": 5,
+      "api": "set_hand_gripper_speed",
+      "expect_data": 1,
+      "joint": 5,
+      "parameter": 50,
+      "test_type": "normal",
+      "title": "设置5关节speed值"
+    },
+    {
+      "ID": 6,
+      "api": "set_hand_gripper_speed",
+      "expect_data": 1,
+      "joint": 6,
+      "parameter": 50,
+      "test_type": "normal",
+      "title": "设置6关节speed值"
+    },
+    {
+      "ID": 7,
+      "api": "set_hand_gripper_speed",
+      "expect_data": null,
+      "joint": 7,
+      "parameter": 50,
+      "test_type": "exception",
+      "title": "设置7关节speed值（超限）"
+    },
+    {
+      "ID": 8,
+      "api": "set_hand_gripper_speed",
+      "expect_data": null,
+      "joint": 0,
+      "parameter": 50,
+      "test_type": "exception",
+      "title": "设置0关节speed值（超限）"
+    },
+    {
+      "ID": 9,
+      "api": "set_hand_gripper_speed",
+      "expect_data": null,
+      "joint": 1,
+      "parameter": 101,
+      "test_type": "exception",
+      "title": "设置1关节speed值（超限）"
+    },
+    {
+      "ID": 10,
+      "api": "set_hand_gripper_speed",
+      "expect_data": null,
+      "joint": 2,
+      "parameter": 101,
+      "test_type": "exception",
+      "title": "设置2关节speed值（超限）"
+    },
+    {
+      "ID": 11,
+      "api": "set_hand_gripper_speed",
+      "expect_data": null,
+      "joint": 3,
+      "parameter": 101,
+      "test_type": "exception",
+      "title": "设置3关节speed值（超限）"
+    },
+    {
+      "ID": 12,
+      "api": "set_hand_gripper_speed",
+      "expect_data": null,
+      "joint": 4,
+      "parameter": 0,
+      "test_type": "exception",
+      "title": "设置4关节speed值（超限）"
+    },
+    {
+      "ID": 13,
+      "api": "set_hand_gripper_speed",
+      "expect_data": null,
+      "joint": 5,
+      "parameter": 0,
+      "test_type": "exception",
+      "title": "设置5关节speed值（超限）"
+    },
+    {
+      "ID": 14,
+      "api": "set_hand_gripper_speed",
+      "expect_data": null,
+      "joint": 6,
+      "parameter": 0,
+      "test_type": "exception",
+      "title": "设置6关节speed值（超限）"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-ca28c833407dc3955425cbdf",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "joint",
+      "parameter",
+      "expect_data",
+      "test_type"
+    ],
+    "original_model": "mercury_my_hand",
+    "python_files": [
+      "testcases/mercury_my_hand/test_set_hand_gripper_speed.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "sheet": "set_hand_gripper_speed",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/MercuryBase.txt",
+      "sources/testcases/mercury_my_hand/test_set_hand_gripper_speed.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_set_hand_gripper_speed_exception",
+      "test_set_hand_gripper_speed_normal"
+    ],
+    "workbook": "mercury_my_hand.xlsx"
+  },
+  "model": "mercury",
+  "name": "mercury_my_hand / set_hand_gripper_speed",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

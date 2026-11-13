@@ -1,0 +1,432 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 1,
+      "mode": 0,
+      "test_type": "normal",
+      "title": "插补模式设置1关节力矩状态，掉使能"
+    },
+    {
+      "ID": 2,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 1,
+      "mode": 1,
+      "test_type": "normal",
+      "title": "插补模式设置1关节力矩状态，上使能"
+    },
+    {
+      "ID": 3,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 2,
+      "mode": 0,
+      "test_type": "normal",
+      "title": "插补模式设置2关节力矩状态，掉使能"
+    },
+    {
+      "ID": 4,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 2,
+      "mode": 1,
+      "test_type": "normal",
+      "title": "插补模式设置2关节力矩状态，上使能"
+    },
+    {
+      "ID": 5,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 3,
+      "mode": 0,
+      "test_type": "normal",
+      "title": "插补模式设置3关节力矩状态，掉使能"
+    },
+    {
+      "ID": 6,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 3,
+      "mode": 1,
+      "test_type": "normal",
+      "title": "插补模式设置3关节力矩状态，上使能"
+    },
+    {
+      "ID": 7,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 4,
+      "mode": 0,
+      "test_type": "normal",
+      "title": "插补模式设置4关节力矩状态，掉使能"
+    },
+    {
+      "ID": 8,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 4,
+      "mode": 1,
+      "test_type": "normal",
+      "title": "插补模式设置4关节力矩状态，上使能"
+    },
+    {
+      "ID": 9,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 5,
+      "mode": 0,
+      "test_type": "normal",
+      "title": "插补模式设置5关节力矩状态，掉使能"
+    },
+    {
+      "ID": 10,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 5,
+      "mode": 1,
+      "test_type": "normal",
+      "title": "插补模式设置5关节力矩状态，上使能"
+    },
+    {
+      "ID": 11,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 6,
+      "mode": 0,
+      "test_type": "normal",
+      "title": "插补模式设置6关节力矩状态，掉使能"
+    },
+    {
+      "ID": 12,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 6,
+      "mode": 1,
+      "test_type": "normal",
+      "title": "插补模式设置6关节力矩状态，上使能"
+    },
+    {
+      "ID": 13,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 7,
+      "mode": 0,
+      "test_type": "normal",
+      "title": "插补模式设置7关节力矩状态，掉使能"
+    },
+    {
+      "ID": 14,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 7,
+      "mode": 1,
+      "test_type": "normal",
+      "title": "插补模式设置7关节力矩状态，上使能"
+    },
+    {
+      "ID": 15,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 254,
+      "mode": 0,
+      "test_type": "normal",
+      "title": "插补模式设置全关节掉使能"
+    },
+    {
+      "ID": 16,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 254,
+      "mode": 1,
+      "test_type": "normal",
+      "title": "插补模式设置全关节上使能"
+    },
+    {
+      "ID": 17,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 1,
+      "mode": 0,
+      "test_type": "normal1",
+      "title": "刷新模式设置1关节力矩状态，掉使能"
+    },
+    {
+      "ID": 18,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 1,
+      "mode": 1,
+      "test_type": "normal1",
+      "title": "刷新模式设置1关节力矩状态，上使能"
+    },
+    {
+      "ID": 19,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 2,
+      "mode": 0,
+      "test_type": "normal1",
+      "title": "刷新模式设置2关节力矩状态，掉使能"
+    },
+    {
+      "ID": 20,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 2,
+      "mode": 1,
+      "test_type": "normal1",
+      "title": "刷新模式设置2关节力矩状态，上使能"
+    },
+    {
+      "ID": 21,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 3,
+      "mode": 0,
+      "test_type": "normal1",
+      "title": "刷新模式设置3关节力矩状态，掉使能"
+    },
+    {
+      "ID": 22,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 3,
+      "mode": 1,
+      "test_type": "normal1",
+      "title": "刷新模式设置3关节力矩状态，上使能"
+    },
+    {
+      "ID": 23,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 4,
+      "mode": 0,
+      "test_type": "normal1",
+      "title": "刷新模式设置4关节力矩状态，掉使能"
+    },
+    {
+      "ID": 24,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 4,
+      "mode": 1,
+      "test_type": "normal1",
+      "title": "刷新模式设置4关节力矩状态，上使能"
+    },
+    {
+      "ID": 25,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 5,
+      "mode": 0,
+      "test_type": "normal1",
+      "title": "刷新模式设置5关节力矩状态，掉使能"
+    },
+    {
+      "ID": 26,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 5,
+      "mode": 1,
+      "test_type": "normal1",
+      "title": "刷新模式设置5关节力矩状态，上使能"
+    },
+    {
+      "ID": 27,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 6,
+      "mode": 0,
+      "test_type": "normal1",
+      "title": "刷新模式设置6关节力矩状态，掉使能"
+    },
+    {
+      "ID": 28,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 6,
+      "mode": 1,
+      "test_type": "normal1",
+      "title": "刷新模式设置6关节力矩状态，上使能"
+    },
+    {
+      "ID": 29,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 7,
+      "mode": 0,
+      "test_type": "normal1",
+      "title": "刷新模式设置7关节力矩状态，掉使能"
+    },
+    {
+      "ID": 30,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 7,
+      "mode": 1,
+      "test_type": "normal1",
+      "title": "刷新模式设置7关节力矩状态，上使能"
+    },
+    {
+      "ID": 31,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 254,
+      "mode": 0,
+      "test_type": "normal1",
+      "title": "刷新模式设置全关节掉使能"
+    },
+    {
+      "ID": 32,
+      "api": "set_motor_enabled",
+      "expect_data": 1,
+      "joint": 254,
+      "mode": 1,
+      "test_type": "normal1",
+      "title": "刷新模式设置全关节上使能"
+    },
+    {
+      "ID": 33,
+      "api": "set_motor_enabled",
+      "expect_data": null,
+      "joint": 0,
+      "mode": 0,
+      "test_type": "exception",
+      "title": "设置关节超限"
+    },
+    {
+      "ID": 34,
+      "api": "set_motor_enabled",
+      "expect_data": null,
+      "joint": 8,
+      "mode": 1,
+      "test_type": "exception",
+      "title": "设置关节超限"
+    },
+    {
+      "ID": 35,
+      "api": "set_motor_enabled",
+      "expect_data": null,
+      "joint": 1,
+      "mode": 2,
+      "test_type": "exception",
+      "title": "设置开关状态超限"
+    },
+    {
+      "ID": 36,
+      "api": "set_motor_enabled",
+      "expect_data": null,
+      "joint": 4,
+      "mode": 255,
+      "test_type": "exception",
+      "title": "设置开关状态超限"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-b7cf143552d6d9088b82c697",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "joint",
+      "mode",
+      "expect_data",
+      "test_type"
+    ],
+    "original_model": "mercury_e1",
+    "python_files": [
+      "testcases/mercury_e1/test_50_set_motor_enabled.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37
+    ],
+    "sheet": "set_motor_enabled",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/MercuryE1Base.txt",
+      "sources/testcases/mercury_e1/test_50_set_motor_enabled.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_set_motor_enabled1",
+      "test_set_motor_enabled2",
+      "test_set_motor_enabled_exception"
+    ],
+    "workbook": "mercury_e1.xlsx"
+  },
+  "model": "mercury_e1",
+  "name": "mercury_e1 / set_motor_enabled",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

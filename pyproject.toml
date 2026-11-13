@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "elephant-test-workbench"
+version = "0.4.0"
+description = "Local robot test workbench with offline SDK environments and LAN case sharing"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi>=0.115,<1", "pydantic>=2.10,<3", "uvicorn>=0.30,<1",
+  "SQLAlchemy>=2.0,<3", "alembic>=1.14,<2", "httpx>=0.27,<1",
+  "python-multipart>=0.0.18,<1", "packaging>=24.2", "websockets>=14,<17", "pyserial>=3.5,<4", "numpy>=1.24,<3"
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.3,<10"]
+
+[project.scripts]
+elephant-workbench = "workbench.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+workbench = ["web/**/*", "migrations/script.py.mako", "bundled_wheels/*.whl", "bundled_wheels/*.txt", "case_library/**/*.json", "case_library/**/*.txt", "case_library/*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+

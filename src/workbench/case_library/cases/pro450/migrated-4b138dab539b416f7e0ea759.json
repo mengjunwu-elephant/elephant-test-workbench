@@ -1,0 +1,117 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "get_error_information",
+      "axis": null,
+      "expect_data": 0,
+      "target_angles": null,
+      "target_coord": null,
+      "test_type": "normal",
+      "title": "无报错状态获取报错信息"
+    },
+    {
+      "ID": 2,
+      "api": "get_error_information",
+      "axis": 2,
+      "expect_data": 36,
+      "target_angles": "[0,0,-90,0,90,0]",
+      "target_coord": -60,
+      "test_type": "exception",
+      "title": "腕关节奇异发送坐标报错"
+    },
+    {
+      "ID": 3,
+      "api": "get_error_information",
+      "axis": 1,
+      "expect_data": 36,
+      "target_angles": "[-11.82, 36.78, -101.57, 70.74, 8.98, 0.0]",
+      "target_coord": 0,
+      "test_type": "exception",
+      "title": "肩关节奇异发送坐标报错"
+    },
+    {
+      "ID": 4,
+      "api": "get_error_information",
+      "axis": 1,
+      "expect_data": 36,
+      "target_angles": "[-8.75, -44.21, -7.2, 48.05, 8.98, 0.0]",
+      "target_coord": 200,
+      "test_type": "exception",
+      "title": "肘关节奇异发送坐标报错"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-4b138dab539b416f7e0ea759",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "target_angles",
+      "axis",
+      "target_coord",
+      "expect_data",
+      "test_type"
+    ],
+    "original_model": "mycobot_450",
+    "python_files": [
+      "testcases/mycobot_450/test_14_get_error_information.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "sheet": "get_error_information",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/Mycobot450Base.txt",
+      "sources/testcases/mycobot_450/conftest.py.txt",
+      "sources/testcases/mycobot_450/test_14_get_error_information.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_get_error_information",
+      "test_singular_point_error"
+    ],
+    "workbook": "mycobot_450.xlsx"
+  },
+  "model": "pro450",
+  "name": "mycobot_450 / get_error_information",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

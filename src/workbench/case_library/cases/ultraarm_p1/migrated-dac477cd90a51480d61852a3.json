@@ -1,0 +1,232 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "send_coords",
+      "coords": "[280.43, 0.0, -17, 0.0]",
+      "expect_data": "ok",
+      "speed": 50,
+      "test_type": "normal",
+      "title": "运动x轴（正向）"
+    },
+    {
+      "ID": 2,
+      "api": "send_coords",
+      "coords": "[250, 0.0, -17, 0.0]",
+      "expect_data": "ok",
+      "speed": 30,
+      "test_type": "normal",
+      "title": "运动x轴（反向）"
+    },
+    {
+      "ID": 3,
+      "api": "send_coords",
+      "coords": "[260, 200, -17, 0.0]",
+      "expect_data": "ok",
+      "speed": 20,
+      "test_type": "normal",
+      "title": "运动y轴（正向）"
+    },
+    {
+      "ID": 4,
+      "api": "send_coords",
+      "coords": "[260, -200, -17, 0.0]",
+      "expect_data": "ok",
+      "speed": 10,
+      "test_type": "normal",
+      "title": "运动y轴（反向）"
+    },
+    {
+      "ID": 5,
+      "api": "send_coords",
+      "coords": "[260, 0.0, 50, 0.0]",
+      "expect_data": "ok",
+      "speed": 50,
+      "test_type": "normal",
+      "title": "运动z轴（正向）"
+    },
+    {
+      "ID": 6,
+      "api": "send_coords",
+      "coords": "[260, 0.0, -50, 0.0]",
+      "expect_data": "ok",
+      "speed": 30,
+      "test_type": "normal",
+      "title": "运动z轴（反向）"
+    },
+    {
+      "ID": 7,
+      "api": "send_coords",
+      "coords": "[260, 0.0, -17, 170.0]",
+      "expect_data": "ok",
+      "speed": 100,
+      "test_type": "normal",
+      "title": "运动rx轴（正向）"
+    },
+    {
+      "ID": 8,
+      "api": "send_coords",
+      "coords": "[260, 0.0, -17, -170.0]",
+      "expect_data": "ok",
+      "speed": 100,
+      "test_type": "normal",
+      "title": "运动rx轴（反向）"
+    },
+    {
+      "ID": 25,
+      "api": "send_coords",
+      "coords": "[-351,0.00,-17,-30]",
+      "expect_data": null,
+      "speed": 40,
+      "test_type": "exception",
+      "title": "全关节运动，坐标超限，x轴"
+    },
+    {
+      "ID": 26,
+      "api": "send_coords",
+      "coords": "[363,0.00,-17,-30]",
+      "expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "全关节运动，坐标超限，x轴"
+    },
+    {
+      "ID": 27,
+      "api": "send_coords",
+      "coords": "[83.50,363,-17,-30]",
+      "expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "全关节运动，坐标超限，Y轴"
+    },
+    {
+      "ID": 28,
+      "api": "send_coords",
+      "coords": "[83.50,-363,-17,-30]",
+      "expect_data": null,
+      "speed": 20,
+      "test_type": "exception",
+      "title": "全关节运动，坐标超限，Y轴"
+    },
+    {
+      "ID": 29,
+      "api": "send_coords",
+      "coords": "[83.50,0.00,-187,-30]",
+      "expect_data": null,
+      "speed": 10,
+      "test_type": "exception",
+      "title": "全关节运动，坐标超限，Z轴"
+    },
+    {
+      "ID": 30,
+      "api": "send_coords",
+      "coords": "[83.50,0.00,94,-30]",
+      "expect_data": null,
+      "speed": 20,
+      "test_type": "exception",
+      "title": "全关节运动，坐标超限，Z轴"
+    },
+    {
+      "ID": 31,
+      "api": "send_coords",
+      "coords": "[250, 0.07, 46.07, 0.0]",
+      "expect_data": null,
+      "speed": 0,
+      "test_type": "exception",
+      "title": "全关节运动，速度超限"
+    },
+    {
+      "ID": 32,
+      "api": "send_coords",
+      "coords": "[250, 0.07, 46.07, 0.0]",
+      "expect_data": null,
+      "speed": 101,
+      "test_type": "exception",
+      "title": "全关节运动，速度超限"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-dac477cd90a51480d61852a3",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "coords",
+      "speed",
+      "expect_data",
+      "test_type"
+    ],
+    "original_model": "UltraArm_P1",
+    "python_files": [
+      "testcases/UltraArm_P1/test_6_set_coords.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "sheet": "set_coords",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/UltraArmP1Base.txt",
+      "sources/testcases/UltraArm_P1/conftest.py.txt",
+      "sources/testcases/UltraArm_P1/test_6_set_coords.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_set_coords0",
+      "test_set_coords_exception"
+    ],
+    "workbook": "UltraArm_P1.xlsx"
+  },
+  "model": "ultraarm_p1",
+  "name": "UltraArm_P1 / set_coords",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

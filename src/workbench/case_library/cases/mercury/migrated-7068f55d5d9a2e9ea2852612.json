@@ -1,0 +1,602 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "angles": "[10,10,10,1,10,90,10]",
+      "api": "send_angles",
+      "l_expect_data": 1,
+      "r_expect_data": 1,
+      "speed": 10,
+      "test_type": "normal",
+      "title": "正确设置多关节角度，速度10"
+    },
+    {
+      "ID": 2,
+      "angles": "[-10,-10,-10,-10,-10,90,-10]",
+      "api": "send_angles",
+      "l_expect_data": 1,
+      "r_expect_data": 1,
+      "speed": 50,
+      "test_type": "normal",
+      "title": "正确设置多关节角度，速度50"
+    },
+    {
+      "ID": 3,
+      "angles": "[20,20,20,0,20,90,-20]",
+      "api": "send_angles",
+      "l_expect_data": 1,
+      "r_expect_data": 1,
+      "speed": 90,
+      "test_type": "normal",
+      "title": "正确设置多关节角度，速度90"
+    },
+    {
+      "ID": 4,
+      "angles": "[165,0,0,0,0,90,0]",
+      "api": "send_angles",
+      "l_expect_data": 0,
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "left",
+      "title": "左臂一关节运动到正限位"
+    },
+    {
+      "ID": 5,
+      "angles": "[-165,0,0,0,0,90,0]",
+      "api": "send_angles",
+      "l_expect_data": 0,
+      "r_expect_data": null,
+      "speed": 30,
+      "test_type": "left",
+      "title": "左臂一关节运动到负限位"
+    },
+    {
+      "ID": 6,
+      "angles": "[0,120,0,0,0,90,0]",
+      "api": "send_angles",
+      "l_expect_data": 0,
+      "r_expect_data": null,
+      "speed": 10,
+      "test_type": "left",
+      "title": "左臂二关节运动到正限位"
+    },
+    {
+      "ID": 7,
+      "angles": "[0,-50,0,0,0,90,0]",
+      "api": "send_angles",
+      "l_expect_data": 0,
+      "r_expect_data": null,
+      "speed": 70,
+      "test_type": "left",
+      "title": "左臂二关节运动到负限位"
+    },
+    {
+      "ID": 8,
+      "angles": "[0,0,165,0,0,90,0]",
+      "api": "send_angles",
+      "l_expect_data": 0,
+      "r_expect_data": null,
+      "speed": 60,
+      "test_type": "left",
+      "title": "左臂三关节运动到正限位"
+    },
+    {
+      "ID": 9,
+      "angles": "[0,0,-165,0,0,90,0]",
+      "api": "send_angles",
+      "l_expect_data": 0,
+      "r_expect_data": null,
+      "speed": 90,
+      "test_type": "left",
+      "title": "左臂三关节运动到负限位"
+    },
+    {
+      "ID": 10,
+      "angles": "[0,0,0,1,0,90,0]",
+      "api": "send_angles",
+      "l_expect_data": 0,
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "left",
+      "title": "左臂四关节运动到正限位"
+    },
+    {
+      "ID": 11,
+      "angles": "[0,0,0,-165,0,90,0]",
+      "api": "send_angles",
+      "l_expect_data": 0,
+      "r_expect_data": null,
+      "speed": 30,
+      "test_type": "left",
+      "title": "左臂四关节运动到负限位"
+    },
+    {
+      "ID": 12,
+      "angles": "[0,0,0,0,165,90,0]",
+      "api": "send_angles",
+      "l_expect_data": 0,
+      "r_expect_data": null,
+      "speed": 10,
+      "test_type": "left",
+      "title": "左臂五关节运动到正限位"
+    },
+    {
+      "ID": 13,
+      "angles": "[0,0,0,0,-165,90,0]",
+      "api": "send_angles",
+      "l_expect_data": 0,
+      "r_expect_data": null,
+      "speed": 70,
+      "test_type": "left",
+      "title": "左臂五关节运动到负限位"
+    },
+    {
+      "ID": 14,
+      "angles": "[0,0,0,0,0,255,0]",
+      "api": "send_angles",
+      "l_expect_data": 0,
+      "r_expect_data": null,
+      "speed": 60,
+      "test_type": "left",
+      "title": "左臂六关节运动到正限位"
+    },
+    {
+      "ID": 15,
+      "angles": "[0,0,0,0,0,-75,0]",
+      "api": "send_angles",
+      "l_expect_data": 0,
+      "r_expect_data": null,
+      "speed": 90,
+      "test_type": "left",
+      "title": "左臂六关节运动到负限位"
+    },
+    {
+      "ID": 16,
+      "angles": "[0,0,0,0,0,90,165]",
+      "api": "send_angles",
+      "l_expect_data": 0,
+      "r_expect_data": null,
+      "speed": 70,
+      "test_type": "left",
+      "title": "左臂七关节运动到正限位"
+    },
+    {
+      "ID": 17,
+      "angles": "[0,0,0,0,0,90,-165]",
+      "api": "send_angles",
+      "l_expect_data": 0,
+      "r_expect_data": null,
+      "speed": 60,
+      "test_type": "left",
+      "title": "左臂七关节运动到负限位"
+    },
+    {
+      "ID": 18,
+      "angles": "[165,0,0,0,0,90,0]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": 0,
+      "speed": 50,
+      "test_type": "right",
+      "title": "右臂一关节运动到正限位"
+    },
+    {
+      "ID": 19,
+      "angles": "[-165,0,0,0,0,90,0]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": 0,
+      "speed": 30,
+      "test_type": "right",
+      "title": "右臂一关节运动到负限位"
+    },
+    {
+      "ID": 20,
+      "angles": "[0,120,0,0,0,90,0]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": 0,
+      "speed": 10,
+      "test_type": "right",
+      "title": "右臂二关节运动到正限位"
+    },
+    {
+      "ID": 21,
+      "angles": "[0,-50,0,0,0,90,0]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": 0,
+      "speed": 70,
+      "test_type": "right",
+      "title": "右臂二关节运动到负限位"
+    },
+    {
+      "ID": 22,
+      "angles": "[0,0,165,0,0,90,0]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": 0,
+      "speed": 60,
+      "test_type": "right",
+      "title": "右臂三关节运动到正限位"
+    },
+    {
+      "ID": 23,
+      "angles": "[0,0,-165,0,0,90,0]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": 0,
+      "speed": 90,
+      "test_type": "right",
+      "title": "右臂三关节运动到负限位"
+    },
+    {
+      "ID": 24,
+      "angles": "[0,0,0,1,0,90,0]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": 0,
+      "speed": 50,
+      "test_type": "right",
+      "title": "右臂四关节运动到正限位"
+    },
+    {
+      "ID": 25,
+      "angles": "[0,0,0,-165,0,90,0]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": 0,
+      "speed": 30,
+      "test_type": "right",
+      "title": "右臂四关节运动到负限位"
+    },
+    {
+      "ID": 26,
+      "angles": "[0,0,0,0,165,90,0]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": 0,
+      "speed": 10,
+      "test_type": "right",
+      "title": "右臂五关节运动到正限位"
+    },
+    {
+      "ID": 27,
+      "angles": "[0,0,0,0,-165,90,0]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": 0,
+      "speed": 70,
+      "test_type": "right",
+      "title": "右臂五关节运动到负限位"
+    },
+    {
+      "ID": 28,
+      "angles": "[0,0,0,0,0,255,0]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": 0,
+      "speed": 60,
+      "test_type": "right",
+      "title": "右臂六关节运动到正限位"
+    },
+    {
+      "ID": 29,
+      "angles": "[0,0,0,0,0,-75,0]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": 0,
+      "speed": 90,
+      "test_type": "right",
+      "title": "右臂六关节运动到负限位"
+    },
+    {
+      "ID": 30,
+      "angles": "[0,0,0,0,0,90,165]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": 0,
+      "speed": 70,
+      "test_type": "right",
+      "title": "右臂七关节运动到正限位"
+    },
+    {
+      "ID": 31,
+      "angles": "[0,0,0,0,0,90,-165]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": 0,
+      "speed": 60,
+      "test_type": "right",
+      "title": "右臂七关节运动到负限位"
+    },
+    {
+      "ID": 32,
+      "angles": "[0,0,0,-10,0,90,-20]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": null,
+      "speed": -1,
+      "test_type": "exception",
+      "title": "设置多关节角度，速度超限（-1）"
+    },
+    {
+      "ID": 33,
+      "angles": "[10,0,0,-30,0,90,0]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": null,
+      "speed": 0,
+      "test_type": "exception",
+      "title": "设置多关节角度，速度超限（0）"
+    },
+    {
+      "ID": 34,
+      "angles": "[0,10,0,0,0,90,60]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": null,
+      "speed": 101,
+      "test_type": "exception",
+      "title": "设置多关节角度，速度超限（101）"
+    },
+    {
+      "ID": 35,
+      "angles": "[-166,10,0,0,0,90,60]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置多关节角度，1关节超限（-166）"
+    },
+    {
+      "ID": 36,
+      "angles": "[166,10,0,0,0,90,60]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置多关节角度，1关节超限（166）"
+    },
+    {
+      "ID": 37,
+      "angles": "[0,-51,0,0,0,90,60]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置多关节角度，2关节超限（-51）"
+    },
+    {
+      "ID": 38,
+      "angles": "[0,121,0,0,0,90,60]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置多关节角度，2关节超限（121）"
+    },
+    {
+      "ID": 39,
+      "angles": "[0,10,-166,0,0,90,60]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置多关节角度，3关节超限（-166）"
+    },
+    {
+      "ID": 40,
+      "angles": "[0,10,166,0,0,90,60]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置多关节角度，3关节超限（166）"
+    },
+    {
+      "ID": 41,
+      "angles": "[0,10,0,-166,0,90,60]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置多关节角度，4关节超限（-166）"
+    },
+    {
+      "ID": 42,
+      "angles": "[0,10,0,2,0,90,60]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置多关节角度，4关节超限（2）"
+    },
+    {
+      "ID": 43,
+      "angles": "[0,10,0,0,-166,90,60]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置多关节角度，5关节超限（-166）"
+    },
+    {
+      "ID": 44,
+      "angles": "[0,10,0,0,166,90,60]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置多关节角度，5关节超限（166）"
+    },
+    {
+      "ID": 45,
+      "angles": "[0,10,0,0,0,-76,60]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置多关节角度，6关节超限（-76）"
+    },
+    {
+      "ID": 46,
+      "angles": "[0,10,0,0,0,256,60]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置多关节角度，6关节超限（256）"
+    },
+    {
+      "ID": 47,
+      "angles": "[0,10,0,0,0,90,-166]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置多关节角度，7关节超限（-166）"
+    },
+    {
+      "ID": 48,
+      "angles": "[0,10,0,0,0,90,166]",
+      "api": "send_angles",
+      "l_expect_data": null,
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置多关节角度，7关节超限（166）"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-7068f55d5d9a2e9ea2852612",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "angles",
+      "speed",
+      "l_expect_data",
+      "r_expect_data",
+      "test_type"
+    ],
+    "original_model": "mercury",
+    "python_files": [
+      "testcases/mercury/test_19_send_angles.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "sheet": "send_angles",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/MercuryBase.txt",
+      "sources/testcases/mercury/test_19_send_angles.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_send_angles_exception",
+      "test_send_angles_left",
+      "test_send_angles_normal",
+      "test_send_angles_right"
+    ],
+    "workbook": "mercury.xlsx"
+  },
+  "model": "mercury",
+  "name": "mercury / send_angles",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

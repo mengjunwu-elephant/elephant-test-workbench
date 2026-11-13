@@ -1,0 +1,122 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "get_modify_screen_version",
+      "expect_data": 4,
+      "test_type": "normal",
+      "title": "读取屏幕更正版本"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": true,
+  "id": "migrated-9c2e9a4470ebd402e0a1db55",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "expect_data",
+      "test_type"
+    ],
+    "conversion": "单函数只读流程完整转换，连接建立/关闭由本项目会话管理；尚未实机验收",
+    "original_model": "UltraArm_P1",
+    "python_files": [
+      "testcases/UltraArm_P1/test_38_get_modify_screen_version.py"
+    ],
+    "review_reasons": [],
+    "rows": [
+      2
+    ],
+    "sheet": "get_modify_screen_version",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/UltraArmP1Base.txt",
+      "sources/testcases/UltraArm_P1/conftest.py.txt",
+      "sources/testcases/UltraArm_P1/test_38_get_modify_screen_version.py.txt"
+    ],
+    "status": "converted_readonly",
+    "test_functions": [
+      "test_get_modify_screen_version"
+    ],
+    "workbook": "UltraArm_P1.xlsx"
+  },
+  "model": "ultraarm_p1",
+  "name": "UltraArm_P1 / get_modify_screen_version",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "get_screen_modify_version",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "converted-1",
+      "kind": "read",
+      "kwargs": {},
+      "message": "",
+      "method": "",
+      "name": "get_screen_modify_version",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "response",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    },
+    {
+      "actual": {
+        "$ref": "response"
+      },
+      "api": "",
+      "args": [],
+      "assertion": "instance",
+      "expected": "int",
+      "expected_exception": "",
+      "id": "converted-2",
+      "kind": "assert",
+      "kwargs": {},
+      "message": "",
+      "method": "",
+      "name": "核对原断言",
+      "parameters": {},
+      "phase": "verify",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    },
+    {
+      "actual": {
+        "$ref": "response"
+      },
+      "api": "",
+      "args": [],
+      "assertion": "value_eq",
+      "expected": {
+        "$ref": "params.expect_data"
+      },
+      "expected_exception": "",
+      "id": "converted-3",
+      "kind": "assert",
+      "kwargs": {},
+      "message": "",
+      "method": "",
+      "name": "核对原断言",
+      "parameters": {},
+      "phase": "verify",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

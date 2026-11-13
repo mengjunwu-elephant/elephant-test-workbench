@@ -1,0 +1,26 @@
+speed = 50
+init_angles = [0, 0, 0, 0, 0, 0]
+
+def default_settings(self):
+    self.mc.power_on()
+    self.mc.set_fresh_mode(0)
+    self.mc.go_home()
+    self.wait()
+    self.mc.clear_error_information()
+
+def wait(self):
+    time.sleep(0.5)
+    while True:
+        if self.mc.is_moving() == 1:
+            time.sleep(0.1)
+        else:
+            break
+    time.sleep(1)
+
+def default_angles(self):
+    for (i, j) in enumerate(self.angles_min):
+        self.mc.set_joint_min(i + 1, j)
+        time.sleep(0.1)
+    for (i, j) in enumerate(self.angles_max):
+        self.mc.set_joint_max(i + 1, j)
+        time.sleep(0.1)

@@ -1,0 +1,33 @@
+name: Verify
+on: [push, pull_request]
+jobs:
+  verify:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.10', '3.12']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: python -m pip install -e ".[test]"
+      - run: python scripts/prepare_base_wheels.py
+      - run: python -m pytest tests -q
+      - run: npm install --global pnpm@11.25.0
+      - run: pnpm install --frozen-lockfile
+        working-directory: frontend
+      - run: pnpm build
+        working-directory: frontend
+      - run: pnpm exec playwright install chromium --with-deps
+        if: runner.os == 'Linux'
+        working-directory: frontend
+      - run: pnpm test:e2e
+        if: runner.os == 'Linux'
+        working-directory: frontend
+        env:
+          WB_PYTHON: python

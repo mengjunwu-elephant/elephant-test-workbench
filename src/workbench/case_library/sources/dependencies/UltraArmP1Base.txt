@@ -1,0 +1,23 @@
+speed = 50
+zero_angles = [0, 0, 90, 0]
+
+def default_base_io_output(self) -> None:
+    for i in range(1, 6):
+        self.mc.set_base_io_output(i, 0, 0)
+        time.sleep(0.2)
+    for i in range(6, 11):
+        self.mc.set_base_io_output(i, 0, 1)
+        time.sleep(0.2)
+
+def go_zero(self) -> None:
+    self.mc.set_angles(self.zero_angles, self.speed)
+    self.wait()
+
+def wait(self) -> None:
+    deadline = time.monotonic() + float(self.move_wait_timeout_sec)
+    time.sleep(0.3)
+    while self.mc.get_run_status():
+        if time.monotonic() > deadline:
+            raise TimeoutError(f'wait() 超时：{self.move_wait_timeout_sec}s 内 get_run_status 仍为真')
+        time.sleep(0.1)
+    time.sleep(0.3)

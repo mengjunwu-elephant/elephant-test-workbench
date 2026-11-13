@@ -1,0 +1,272 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "jog_rpy",
+      "axis": 1,
+      "expect_data": 1,
+      "position": 0,
+      "speed": 30,
+      "test_type": "normal",
+      "title": "插补模式下，x轴进行rpy运动（负向）"
+    },
+    {
+      "ID": 2,
+      "api": "jog_rpy",
+      "axis": 1,
+      "expect_data": 1,
+      "position": 1,
+      "speed": 50,
+      "test_type": "normal",
+      "title": "插补模式下，x轴进行rpy运动（正向）"
+    },
+    {
+      "ID": 3,
+      "api": "jog_rpy",
+      "axis": 2,
+      "expect_data": 1,
+      "position": 0,
+      "speed": 70,
+      "test_type": "normal",
+      "title": "插补模式下，y轴进行rpy运动（负向）"
+    },
+    {
+      "ID": 4,
+      "api": "jog_rpy",
+      "axis": 2,
+      "expect_data": 1,
+      "position": 1,
+      "speed": 20,
+      "test_type": "normal",
+      "title": "插补模式下，y轴进行rpy运动（正向）"
+    },
+    {
+      "ID": 5,
+      "api": "jog_rpy",
+      "axis": 3,
+      "expect_data": 1,
+      "position": 0,
+      "speed": 30,
+      "test_type": "normal",
+      "title": "插补模式下，z轴进行rpy运动（负向）"
+    },
+    {
+      "ID": 6,
+      "api": "jog_rpy",
+      "axis": 3,
+      "expect_data": 1,
+      "position": 1,
+      "speed": 30,
+      "test_type": "normal",
+      "title": "插补模式下，z轴进行rpy运动（正向）"
+    },
+    {
+      "ID": 13,
+      "api": "jog_rpy",
+      "axis": 1,
+      "expect_data": "错误：刷新模式无法使用JOG运动，请切换插补模式使用",
+      "position": 0,
+      "speed": 20,
+      "test_type": "normal1",
+      "title": "刷新模式下，x轴进行rpy运动（负向）"
+    },
+    {
+      "ID": 14,
+      "api": "jog_rpy",
+      "axis": 1,
+      "expect_data": "错误：刷新模式无法使用JOG运动，请切换插补模式使用",
+      "position": 1,
+      "speed": 50,
+      "test_type": "normal1",
+      "title": "刷新模式下，x轴进行rpy运动（正向）"
+    },
+    {
+      "ID": 15,
+      "api": "jog_rpy",
+      "axis": 2,
+      "expect_data": "错误：刷新模式无法使用JOG运动，请切换插补模式使用",
+      "position": 0,
+      "speed": 20,
+      "test_type": "normal1",
+      "title": "刷新模式下，y轴进行rpy运动（负向）"
+    },
+    {
+      "ID": 16,
+      "api": "jog_rpy",
+      "axis": 2,
+      "expect_data": "错误：刷新模式无法使用JOG运动，请切换插补模式使用",
+      "position": 1,
+      "speed": 20,
+      "test_type": "normal1",
+      "title": "刷新模式下，y轴进行rpy运动（正向）"
+    },
+    {
+      "ID": 17,
+      "api": "jog_rpy",
+      "axis": 3,
+      "expect_data": "错误：刷新模式无法使用JOG运动，请切换插补模式使用",
+      "position": 0,
+      "speed": 30,
+      "test_type": "normal1",
+      "title": "刷新模式下，z轴进行rpy运动（负向）"
+    },
+    {
+      "ID": 18,
+      "api": "jog_rpy",
+      "axis": 3,
+      "expect_data": "错误：刷新模式无法使用JOG运动，请切换插补模式使用",
+      "position": 1,
+      "speed": 30,
+      "test_type": "normal1",
+      "title": "刷新模式下，z轴进行rpy运动（正向）"
+    },
+    {
+      "ID": 25,
+      "api": "jog_rpy",
+      "axis": 3,
+      "expect_data": null,
+      "position": 0,
+      "speed": 0,
+      "test_type": "exception",
+      "title": "设置速度超限"
+    },
+    {
+      "ID": 26,
+      "api": "jog_rpy",
+      "axis": 4,
+      "expect_data": null,
+      "position": 1,
+      "speed": 101,
+      "test_type": "exception",
+      "title": "设置速度超限"
+    },
+    {
+      "ID": 27,
+      "api": "jog_rpy",
+      "axis": 0,
+      "expect_data": null,
+      "position": 0,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置坐标系超限"
+    },
+    {
+      "ID": 28,
+      "api": "jog_rpy",
+      "axis": 4,
+      "expect_data": null,
+      "position": 1,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置坐标系超限"
+    },
+    {
+      "ID": 29,
+      "api": "jog_rpy",
+      "axis": 3,
+      "expect_data": null,
+      "position": 2,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置方向超限"
+    },
+    {
+      "ID": 30,
+      "api": "jog_rpy",
+      "axis": 4,
+      "expect_data": null,
+      "position": -1,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置方向超限"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-0a57a361014b2566d4e17000",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "axis",
+      "position",
+      "speed",
+      "expect_data",
+      "test_type"
+    ],
+    "original_model": "mycobot_450",
+    "python_files": [
+      "testcases/mycobot_450/test_35_jog_rpy.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "sheet": "jog_rpy",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/Mycobot450Base.txt",
+      "sources/testcases/mycobot_450/conftest.py.txt",
+      "sources/testcases/mycobot_450/test_35_jog_rpy.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_jog_rpy0",
+      "test_jog_rpy1",
+      "test_jog_rpy_exception"
+    ],
+    "workbook": "mycobot_450.xlsx"
+  },
+  "model": "pro450",
+  "name": "mycobot_450 / jog_rpy",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

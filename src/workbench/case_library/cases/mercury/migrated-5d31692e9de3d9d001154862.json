@@ -1,0 +1,293 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "send_coords",
+      "l_expect_data": 0,
+      "parameter": "[300.5, 20.0, 170.3, 179.99, 19.99, 0.0]",
+      "r_expect_data": 0,
+      "speed": 30,
+      "test_type": "normal",
+      "title": "正确设置机械臂全坐标(x,y.z)"
+    },
+    {
+      "ID": 2,
+      "api": "send_coords",
+      "l_expect_data": 0,
+      "parameter": "[360.5, -20.0, 140.3, 179.99, 19.99, 0.0]",
+      "r_expect_data": 0,
+      "speed": 50,
+      "test_type": "normal",
+      "title": "正确设置机械臂全坐标(x,y.z)"
+    },
+    {
+      "ID": 3,
+      "api": "send_coords",
+      "l_expect_data": 0,
+      "parameter": "[322.5, 0.0, 158.3, 170, 30, 10.0]",
+      "r_expect_data": 0,
+      "speed": 60,
+      "test_type": "normal",
+      "title": "正确设置机械臂全坐标(rx,ry.rz)"
+    },
+    {
+      "ID": 4,
+      "api": "send_coords",
+      "l_expect_data": 0,
+      "parameter": "[322.5, 0.0, 158.3, 160, 0, 30.0]",
+      "r_expect_data": 0,
+      "speed": 70,
+      "test_type": "normal",
+      "title": "正确设置机械臂全坐标(rx,ry.rz)"
+    },
+    {
+      "ID": 5,
+      "api": "send_coords",
+      "l_expect_data": null,
+      "parameter": "[567, 0.0, 158.3, 179.99, 19.99, 0.0]",
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置全坐标x轴超限（max）"
+    },
+    {
+      "ID": 6,
+      "api": "send_coords",
+      "l_expect_data": null,
+      "parameter": "[-352, 0.0, 158.3, 179.99, 19.99, 0.0]",
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置全坐标x轴超限（min）"
+    },
+    {
+      "ID": 7,
+      "api": "send_coords",
+      "l_expect_data": null,
+      "parameter": "[322.5, 646, 158.3, 179.99, 19.99, 0.0]",
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "left",
+      "title": "设置全坐标y轴超限（max）左臂"
+    },
+    {
+      "ID": 8,
+      "api": "send_coords",
+      "l_expect_data": null,
+      "parameter": "[322.5, -273, 158.3, 179.99, 19.99, 0.0]",
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "left",
+      "title": "设置全坐标y轴超限（min）左臂"
+    },
+    {
+      "ID": 7,
+      "api": "send_coords",
+      "l_expect_data": null,
+      "parameter": "[322.5, 273, 158.3, 179.99, 19.99, 0.0]",
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "right",
+      "title": "设置全坐标y轴超限（max）右臂"
+    },
+    {
+      "ID": 8,
+      "api": "send_coords",
+      "l_expect_data": null,
+      "parameter": "[322.5, -646, 158.3, 179.99, 19.99, 0.0]",
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "right",
+      "title": "设置全坐标y轴超限（min）右臂"
+    },
+    {
+      "ID": 9,
+      "api": "send_coords",
+      "l_expect_data": null,
+      "parameter": "[322.5, 0.0, 656, 179.99, 19.99, 0.0]",
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置全坐标z轴超限（max）"
+    },
+    {
+      "ID": 10,
+      "api": "send_coords",
+      "l_expect_data": null,
+      "parameter": "[322.5, 0.0, -263, 179.99, 19.99, 0.0]",
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置全坐标z轴超限（min）"
+    },
+    {
+      "ID": 13,
+      "api": "send_coords",
+      "l_expect_data": null,
+      "parameter": "[322.5, 0.0, 158.3, 181, 19.99, 0.0]",
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置全坐标rx轴超限（max）"
+    },
+    {
+      "ID": 14,
+      "api": "send_coords",
+      "l_expect_data": null,
+      "parameter": "[322.5, 0.0, 158.3, -181, 19.99, 0.0]",
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置全坐标rx轴超限（min）"
+    },
+    {
+      "ID": 15,
+      "api": "send_coords",
+      "l_expect_data": null,
+      "parameter": "[322.5, 0.0, 158.3, 179.99, 181, 0.0]",
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置全坐标ry轴超限（max）"
+    },
+    {
+      "ID": 16,
+      "api": "send_coords",
+      "l_expect_data": null,
+      "parameter": "[322.5, 0.0, 158.3, 179.99, -181, 0.0]",
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置全坐标ry轴超限（min）"
+    },
+    {
+      "ID": 17,
+      "api": "send_coords",
+      "l_expect_data": null,
+      "parameter": "[322.5, 0.0, 158.3, 179.99, 19.99, 181]",
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置全坐标ry轴超限（max）"
+    },
+    {
+      "ID": 18,
+      "api": "send_coords",
+      "l_expect_data": null,
+      "parameter": "[322.5, 0.0, 158.3, 179.99, 19.99, -181]",
+      "r_expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置全坐标ry轴超限（min）"
+    },
+    {
+      "ID": 19,
+      "api": "send_coords",
+      "l_expect_data": null,
+      "parameter": "[360.5, -20.0, 140.3, 179.99, 19.99, 0.0]",
+      "r_expect_data": null,
+      "speed": 101,
+      "test_type": "exception",
+      "title": "设置全坐标速度超限"
+    },
+    {
+      "ID": 20,
+      "api": "send_coords",
+      "l_expect_data": null,
+      "parameter": "[360.5, -20.0, 140.3, 179.99, 19.99, 0.0]",
+      "r_expect_data": null,
+      "speed": 0,
+      "test_type": "exception",
+      "title": "设置全坐标速度超限"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-5d31692e9de3d9d001154862",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "parameter",
+      "speed",
+      "l_expect_data",
+      "r_expect_data",
+      "test_type"
+    ],
+    "original_model": "mercury",
+    "python_files": [
+      "testcases/mercury/test_23_send_coords.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "sheet": "send_coords",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/MercuryBase.txt",
+      "sources/testcases/mercury/test_23_send_coords.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_send_coords",
+      "test_send_coords_out_limit_left",
+      "test_send_coords_out_limit_right"
+    ],
+    "workbook": "mercury.xlsx"
+  },
+  "model": "mercury",
+  "name": "mercury / send_coords",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

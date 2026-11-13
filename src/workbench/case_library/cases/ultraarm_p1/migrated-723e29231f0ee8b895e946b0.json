@@ -1,0 +1,242 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "set_jog_angle",
+      "expect_data": "ok",
+      "joint": 1,
+      "position": 0,
+      "speed": 30,
+      "target_angle": -165,
+      "test_type": "normal",
+      "title": "使一关节运动到负限位"
+    },
+    {
+      "ID": 2,
+      "api": "set_jog_angle",
+      "expect_data": "ok",
+      "joint": 1,
+      "position": 1,
+      "speed": 20,
+      "target_angle": 165,
+      "test_type": "normal",
+      "title": "使一关节运动到正限位"
+    },
+    {
+      "ID": 3,
+      "api": "set_jog_angle",
+      "expect_data": "ok",
+      "joint": 2,
+      "position": 0,
+      "speed": 10,
+      "target_angle": -18,
+      "test_type": "normal",
+      "title": "使二关节运动到负限位"
+    },
+    {
+      "ID": 4,
+      "api": "set_jog_angle",
+      "expect_data": "ok",
+      "joint": 2,
+      "position": 1,
+      "speed": 40,
+      "target_angle": 85,
+      "test_type": "normal",
+      "title": "使二关节运动到正限位"
+    },
+    {
+      "ID": 5,
+      "api": "set_jog_angle",
+      "expect_data": "ok",
+      "joint": 3,
+      "position": 0,
+      "speed": 50,
+      "target_angle": 89,
+      "test_type": "normal",
+      "title": "使三关节运动到负限位"
+    },
+    {
+      "ID": 6,
+      "api": "set_jog_angle",
+      "expect_data": "ok",
+      "joint": 3,
+      "position": 1,
+      "speed": 40,
+      "target_angle": 200,
+      "test_type": "normal",
+      "title": "使三关节运动到正限位"
+    },
+    {
+      "ID": 7,
+      "api": "set_jog_angle",
+      "expect_data": "ok",
+      "joint": 4,
+      "position": 0,
+      "speed": 50,
+      "target_angle": -179,
+      "test_type": "normal",
+      "title": "使四关节运动到负限位"
+    },
+    {
+      "ID": 8,
+      "api": "set_jog_angle",
+      "expect_data": "ok",
+      "joint": 4,
+      "position": 1,
+      "speed": 20,
+      "target_angle": 179,
+      "test_type": "normal",
+      "title": "使四关节运动到正限位"
+    },
+    {
+      "ID": 25,
+      "api": "set_jog_angle",
+      "expect_data": null,
+      "joint": 1,
+      "position": 0,
+      "speed": 0,
+      "target_angle": -158,
+      "test_type": "exception",
+      "title": "设置速度超限"
+    },
+    {
+      "ID": 26,
+      "api": "set_jog_angle",
+      "expect_data": null,
+      "joint": 4,
+      "position": 1,
+      "speed": 101,
+      "target_angle": 165,
+      "test_type": "exception",
+      "title": "设置速度超限"
+    },
+    {
+      "ID": 27,
+      "api": "set_jog_angle",
+      "expect_data": null,
+      "joint": 0,
+      "position": 0,
+      "speed": 30,
+      "target_angle": -158,
+      "test_type": "exception",
+      "title": "设置关节超限"
+    },
+    {
+      "ID": 28,
+      "api": "set_jog_angle",
+      "expect_data": null,
+      "joint": 5,
+      "position": 1,
+      "speed": 10,
+      "target_angle": 165,
+      "test_type": "exception",
+      "title": "设置关节超限"
+    },
+    {
+      "ID": 29,
+      "api": "set_jog_angle",
+      "expect_data": null,
+      "joint": 3,
+      "position": 2,
+      "speed": 20,
+      "target_angle": 200,
+      "test_type": "exception",
+      "title": "设置方向超限"
+    },
+    {
+      "ID": 30,
+      "api": "set_jog_angle",
+      "expect_data": null,
+      "joint": 4,
+      "position": -1,
+      "speed": 10,
+      "target_angle": -10,
+      "test_type": "exception",
+      "title": "设置方向超限"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-723e29231f0ee8b895e946b0",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "joint",
+      "position",
+      "target_angle",
+      "speed",
+      "expect_data",
+      "test_type"
+    ],
+    "original_model": "UltraArm_P1",
+    "python_files": [
+      "testcases/UltraArm_P1/test_8_set_jog_angle.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "sheet": "set_jog_angle",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/UltraArmP1Base.txt",
+      "sources/testcases/UltraArm_P1/conftest.py.txt",
+      "sources/testcases/UltraArm_P1/test_8_set_jog_angle.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_set_jog_angle0",
+      "test_set_jog_angle_exception"
+    ],
+    "workbook": "UltraArm_P1.xlsx"
+  },
+  "model": "ultraarm_p1",
+  "name": "UltraArm_P1 / set_jog_angle",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

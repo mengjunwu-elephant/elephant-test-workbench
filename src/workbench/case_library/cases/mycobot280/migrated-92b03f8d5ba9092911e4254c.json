@@ -1,0 +1,87 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "is_free_mode",
+      "expect_data": 1,
+      "set": 1,
+      "test_type": "normal",
+      "title": "查看当前是否为自由模式（1）"
+    },
+    {
+      "ID": 2,
+      "api": "is_free_mode",
+      "expect_data": 0,
+      "set": 0,
+      "test_type": "normal",
+      "title": "查看当前是否为自由模式（0）"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-92b03f8d5ba9092911e4254c",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "set",
+      "expect_data",
+      "test_type"
+    ],
+    "original_model": "mycobot_280",
+    "python_files": [
+      "testcases/mycobot_280/test_12_is_free_mode.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3
+    ],
+    "sheet": "is_free_mode",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/Mycobot280Base.txt",
+      "sources/testcases/mycobot_280/test_12_is_free_mode.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_is_free_mode"
+    ],
+    "workbook": "mycobot_280.xlsx"
+  },
+  "model": "mycobot280",
+  "name": "mycobot_280 / is_free_mode",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

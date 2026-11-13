@@ -1,0 +1,105 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "angles": null,
+      "api": "get_coords",
+      "coords": "[170,-62,230,179,0,-90]",
+      "expect_data": "[170,-62,230,179,0,-90]",
+      "fresh_mode": 1,
+      "test_type": "normal",
+      "title": "刷新模式下获取坐标"
+    },
+    {
+      "ID": 2,
+      "angles": null,
+      "api": "get_coords",
+      "coords": "[170,-20,230,179,0,-90]",
+      "expect_data": "[170,-20,230,179,0,-90]",
+      "fresh_mode": 0,
+      "test_type": "normal",
+      "title": "插补模式下获取坐标"
+    },
+    {
+      "ID": 3,
+      "angles": "[0,30,-90,-30,0,0]",
+      "api": "get_coords",
+      "coords": null,
+      "expect_data": "[103.4, -62.4, 235.8, 178.85, 0.15, -90.35]",
+      "fresh_mode": null,
+      "test_type": "normal1",
+      "title": "计算运动学正解"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-3cbb56a5f718b8758d4a4a39",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "coords",
+      "angles",
+      "fresh_mode",
+      "expect_data",
+      "test_type"
+    ],
+    "original_model": "mycobot_280",
+    "python_files": [
+      "testcases/mycobot_280/test_18_get_coords.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4
+    ],
+    "sheet": "get_coords",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/Mycobot280Base.txt",
+      "sources/testcases/mycobot_280/test_18_get_coords.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_get_coords",
+      "test_get_coords1"
+    ],
+    "workbook": "mycobot_280.xlsx"
+  },
+  "model": "mycobot280",
+  "name": "mycobot_280 / get_coords",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

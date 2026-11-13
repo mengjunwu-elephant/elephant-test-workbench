@@ -1,0 +1,490 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "set_encoder",
+      "encoders": "[3947,2048,2048,2048,2048,2048]",
+      "expect_data": 1,
+      "fresh_mode": 1,
+      "speed": 10,
+      "test_type": "normal",
+      "title": "刷新模式下设置1关节正限位"
+    },
+    {
+      "ID": 2,
+      "api": "set_encoder",
+      "encoders": "[150,2048,2048,2048,2048,2048",
+      "expect_data": 1,
+      "fresh_mode": 1,
+      "speed": 20,
+      "test_type": "normal",
+      "title": "刷新模式下设置1关节负限位"
+    },
+    {
+      "ID": 3,
+      "api": "set_encoder",
+      "encoders": "[2048,3574,1024,2048,2048,2048]",
+      "expect_data": 1,
+      "fresh_mode": 1,
+      "speed": 30,
+      "test_type": "normal",
+      "title": "刷新模式下设置2关节正限位"
+    },
+    {
+      "ID": 4,
+      "api": "set_encoder",
+      "encoders": "[2048,523,3000,2048,2048,2048]",
+      "expect_data": 1,
+      "fresh_mode": 1,
+      "speed": 40,
+      "test_type": "normal",
+      "title": "刷新模式下设置2关节负限位"
+    },
+    {
+      "ID": 5,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,3743,2048,2048]",
+      "expect_data": 1,
+      "fresh_mode": 1,
+      "speed": 50,
+      "test_type": "normal",
+      "title": "刷新模式下设置3关节正限位"
+    },
+    {
+      "ID": 6,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,353,2048,2048,2048]",
+      "expect_data": 1,
+      "fresh_mode": 1,
+      "speed": 60,
+      "test_type": "normal",
+      "title": "刷新模式下设置3关节负限位"
+    },
+    {
+      "ID": 7,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,2048,3687,1024,2048]",
+      "expect_data": 1,
+      "fresh_mode": 1,
+      "speed": 70,
+      "test_type": "normal",
+      "title": "刷新模式下设置4关节正限位"
+    },
+    {
+      "ID": 8,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,2048,410,1024,2048]",
+      "expect_data": 1,
+      "fresh_mode": 1,
+      "speed": 80,
+      "test_type": "normal",
+      "title": "刷新模式下设置4关节负限位"
+    },
+    {
+      "ID": 9,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,2048,2048,3913,2048]",
+      "expect_data": 1,
+      "fresh_mode": 1,
+      "speed": 90,
+      "test_type": "normal",
+      "title": "刷新模式下设置5关节正限位"
+    },
+    {
+      "ID": 10,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,2048,2048,184,2048]",
+      "expect_data": 1,
+      "fresh_mode": 1,
+      "speed": 100,
+      "test_type": "normal",
+      "title": "刷新模式下设置5关节负限位"
+    },
+    {
+      "ID": 11,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,2048,2048,2048,4082]",
+      "expect_data": 1,
+      "fresh_mode": 1,
+      "speed": 10,
+      "test_type": "normal",
+      "title": "刷新模式下设置6关节正限位"
+    },
+    {
+      "ID": 12,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,2048,2048,2048,14]",
+      "expect_data": 1,
+      "fresh_mode": 1,
+      "speed": 20,
+      "test_type": "normal",
+      "title": "刷新模式下设置6关节负限位"
+    },
+    {
+      "ID": 13,
+      "api": "set_encoder",
+      "encoders": "[3947,2048,2048,2048,2048,2048]",
+      "expect_data": 1,
+      "fresh_mode": 0,
+      "speed": 30,
+      "test_type": "normal",
+      "title": "插补模式下设置1关节正限位"
+    },
+    {
+      "ID": 14,
+      "api": "set_encoder",
+      "encoders": "[150,2048,2048,2048,2048,2048",
+      "expect_data": 1,
+      "fresh_mode": 0,
+      "speed": 40,
+      "test_type": "normal",
+      "title": "插补模式下设置1关节负限位"
+    },
+    {
+      "ID": 15,
+      "api": "set_encoder",
+      "encoders": "[2048,3574,1024,2048,2048,2048]",
+      "expect_data": 1,
+      "fresh_mode": 0,
+      "speed": 50,
+      "test_type": "normal",
+      "title": "插补模式下设置2关节正限位"
+    },
+    {
+      "ID": 16,
+      "api": "set_encoder",
+      "encoders": "[2048,523,3000,2048,2048,2048]",
+      "expect_data": 1,
+      "fresh_mode": 0,
+      "speed": 60,
+      "test_type": "normal",
+      "title": "插补模式下设置2关节负限位"
+    },
+    {
+      "ID": 17,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,3743,2048,2048]",
+      "expect_data": 1,
+      "fresh_mode": 0,
+      "speed": 70,
+      "test_type": "normal",
+      "title": "插补模式下设置3关节正限位"
+    },
+    {
+      "ID": 18,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,353,2048,2048,2048]",
+      "expect_data": 1,
+      "fresh_mode": 0,
+      "speed": 80,
+      "test_type": "normal",
+      "title": "插补模式下设置3关节负限位"
+    },
+    {
+      "ID": 19,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,2048,3687,1024,2048]",
+      "expect_data": 1,
+      "fresh_mode": 0,
+      "speed": 90,
+      "test_type": "normal",
+      "title": "插补模式下设置4关节正限位"
+    },
+    {
+      "ID": 20,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,2048,410,1024,2048]",
+      "expect_data": 1,
+      "fresh_mode": 0,
+      "speed": 100,
+      "test_type": "normal",
+      "title": "插补模式下设置4关节负限位"
+    },
+    {
+      "ID": 21,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,2048,2048,3913,2048]",
+      "expect_data": 1,
+      "fresh_mode": 0,
+      "speed": 60,
+      "test_type": "normal",
+      "title": "插补模式下设置5关节正限位"
+    },
+    {
+      "ID": 22,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,2048,2048,184,2048]",
+      "expect_data": 1,
+      "fresh_mode": 0,
+      "speed": 60,
+      "test_type": "normal",
+      "title": "插补模式下设置5关节负限位"
+    },
+    {
+      "ID": 23,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,2048,2048,2048,4082]",
+      "expect_data": 1,
+      "fresh_mode": 0,
+      "speed": 60,
+      "test_type": "normal",
+      "title": "插补模式下设置6关节正限位"
+    },
+    {
+      "ID": 24,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,2048,2048,2048,14]",
+      "expect_data": 1,
+      "fresh_mode": 0,
+      "speed": 60,
+      "test_type": "normal",
+      "title": "插补模式下设置6关节负限位"
+    },
+    {
+      "ID": 27,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,2048,2048,2048,14]",
+      "expect_data": null,
+      "fresh_mode": null,
+      "speed": 101,
+      "test_type": "exception",
+      "title": "设置速度超限"
+    },
+    {
+      "ID": 28,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,2048,2048,2048,14]",
+      "expect_data": null,
+      "fresh_mode": null,
+      "speed": 0,
+      "test_type": "exception",
+      "title": "设置速度超限"
+    },
+    {
+      "ID": 29,
+      "api": "set_encoder",
+      "encoders": "[4097,2048,2048,2048,2048,2048]",
+      "expect_data": null,
+      "fresh_mode": null,
+      "speed": 10,
+      "test_type": "exception",
+      "title": "设置1关节正限位超限"
+    },
+    {
+      "ID": 30,
+      "api": "set_encoder",
+      "encoders": "[-1,2048,2048,2048,2048,2048",
+      "expect_data": null,
+      "fresh_mode": null,
+      "speed": 20,
+      "test_type": "exception",
+      "title": "设置1关节负限位超限"
+    },
+    {
+      "ID": 31,
+      "api": "set_encoder",
+      "encoders": "[2048,4097,1024,2048,2048,2048]",
+      "expect_data": null,
+      "fresh_mode": null,
+      "speed": 30,
+      "test_type": "exception",
+      "title": "设置2关节正限位超限"
+    },
+    {
+      "ID": 32,
+      "api": "set_encoder",
+      "encoders": "[2048,-1,3000,2048,2048,2048]",
+      "expect_data": null,
+      "fresh_mode": null,
+      "speed": 40,
+      "test_type": "exception",
+      "title": "设置2关节负限位超限"
+    },
+    {
+      "ID": 33,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,4097,2048,2048]",
+      "expect_data": null,
+      "fresh_mode": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "设置3关节正限位超限"
+    },
+    {
+      "ID": 34,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,-1,2048,2048,2048]",
+      "expect_data": null,
+      "fresh_mode": null,
+      "speed": 60,
+      "test_type": "exception",
+      "title": "设置3关节负限位超限"
+    },
+    {
+      "ID": 35,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,2048,4097,1024,2048]",
+      "expect_data": null,
+      "fresh_mode": null,
+      "speed": 70,
+      "test_type": "exception",
+      "title": "设置4关节正限位超限"
+    },
+    {
+      "ID": 36,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,2048,-1,1024,2048]",
+      "expect_data": null,
+      "fresh_mode": null,
+      "speed": 80,
+      "test_type": "exception",
+      "title": "设置4关节负限位超限"
+    },
+    {
+      "ID": 37,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,2048,2048,4097,2048]",
+      "expect_data": null,
+      "fresh_mode": null,
+      "speed": 90,
+      "test_type": "exception",
+      "title": "设置5关节正限位超限"
+    },
+    {
+      "ID": 38,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,2048,2048,-1,2048]",
+      "expect_data": null,
+      "fresh_mode": null,
+      "speed": 100,
+      "test_type": "exception",
+      "title": "设置5关节负限位超限"
+    },
+    {
+      "ID": 39,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,2048,2048,2048,4097]",
+      "expect_data": null,
+      "fresh_mode": null,
+      "speed": 10,
+      "test_type": "exception",
+      "title": "设置6关节正限位超限"
+    },
+    {
+      "ID": 40,
+      "api": "set_encoder",
+      "encoders": "[2048,2048,2048,2048,2048,-1]",
+      "expect_data": null,
+      "fresh_mode": null,
+      "speed": 20,
+      "test_type": "exception",
+      "title": "设置6关节负限位超限"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-9bafa1c3b13b4878aab48a3e",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "encoders",
+      "speed",
+      "fresh_mode",
+      "expect_data",
+      "test_type"
+    ],
+    "original_model": "mycobot_280",
+    "python_files": [
+      "testcases/mycobot_280/test_40_set_encoders.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39
+    ],
+    "sheet": "set_encoders",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/Mycobot280Base.txt",
+      "sources/testcases/mycobot_280/test_40_set_encoders.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_set_encoders",
+      "test_set_encoders_exception"
+    ],
+    "workbook": "mycobot_280.xlsx"
+  },
+  "model": "mycobot280",
+  "name": "mycobot_280 / set_encoders",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

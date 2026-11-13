@@ -1,0 +1,242 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "jog_increment_angle",
+      "expect_data": "ok",
+      "increment": -30,
+      "joint": 1,
+      "speed": 30,
+      "target_angle": -30,
+      "test_type": "normal",
+      "title": "使一关节增量-30度运动"
+    },
+    {
+      "ID": 2,
+      "api": "jog_increment_angle",
+      "expect_data": "ok",
+      "increment": 30,
+      "joint": 1,
+      "speed": 50,
+      "target_angle": 30,
+      "test_type": "normal",
+      "title": "使一关节增量30度运动"
+    },
+    {
+      "ID": 3,
+      "api": "jog_increment_angle",
+      "expect_data": "ok",
+      "increment": -10,
+      "joint": 2,
+      "speed": 70,
+      "target_angle": -10,
+      "test_type": "normal",
+      "title": "使二关节增量-30度运动"
+    },
+    {
+      "ID": 4,
+      "api": "jog_increment_angle",
+      "expect_data": "ok",
+      "increment": 10,
+      "joint": 2,
+      "speed": 20,
+      "target_angle": 10,
+      "test_type": "normal",
+      "title": "使二关节增量30度运动"
+    },
+    {
+      "ID": 5,
+      "api": "jog_increment_angle",
+      "expect_data": "ok",
+      "increment": -29,
+      "joint": 3,
+      "speed": 30,
+      "target_angle": 89,
+      "test_type": "normal",
+      "title": "使三关节增量-30度运动"
+    },
+    {
+      "ID": 6,
+      "api": "jog_increment_angle",
+      "expect_data": "ok",
+      "increment": 30,
+      "joint": 3,
+      "speed": 30,
+      "target_angle": 120,
+      "test_type": "normal",
+      "title": "使三关节增量30度运动"
+    },
+    {
+      "ID": 7,
+      "api": "jog_increment_angle",
+      "expect_data": "ok",
+      "increment": -30,
+      "joint": 4,
+      "speed": 40,
+      "target_angle": -30,
+      "test_type": "normal",
+      "title": "使四关节增量-30度运动"
+    },
+    {
+      "ID": 8,
+      "api": "jog_increment_angle",
+      "expect_data": "ok",
+      "increment": 30,
+      "joint": 4,
+      "speed": 40,
+      "target_angle": 30,
+      "test_type": "normal",
+      "title": "使四关节增量30度运动"
+    },
+    {
+      "ID": 25,
+      "api": "jog_increment_angle",
+      "expect_data": null,
+      "increment": -30,
+      "joint": 3,
+      "speed": 0,
+      "target_angle": null,
+      "test_type": "exception",
+      "title": "设置速度超限"
+    },
+    {
+      "ID": 26,
+      "api": "jog_increment_angle",
+      "expect_data": null,
+      "increment": 30,
+      "joint": 4,
+      "speed": 101,
+      "target_angle": null,
+      "test_type": "exception",
+      "title": "设置速度超限"
+    },
+    {
+      "ID": 27,
+      "api": "jog_increment_angle",
+      "expect_data": null,
+      "increment": -30,
+      "joint": 0,
+      "speed": 50,
+      "target_angle": null,
+      "test_type": "exception",
+      "title": "设置关节超限"
+    },
+    {
+      "ID": 28,
+      "api": "jog_increment_angle",
+      "expect_data": null,
+      "increment": 30,
+      "joint": 5,
+      "speed": 50,
+      "target_angle": null,
+      "test_type": "exception",
+      "title": "设置关节超限"
+    },
+    {
+      "ID": 29,
+      "api": "jog_increment_angle",
+      "expect_data": null,
+      "increment": -331,
+      "joint": 1,
+      "speed": 50,
+      "target_angle": null,
+      "test_type": "exception",
+      "title": "设置1关节增量超限"
+    },
+    {
+      "ID": 30,
+      "api": "jog_increment_angle",
+      "expect_data": null,
+      "increment": 331,
+      "joint": 1,
+      "speed": 50,
+      "target_angle": null,
+      "test_type": "exception",
+      "title": "设置1关节增量超限"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-27ac8a719bf417684d7cf7a8",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "joint",
+      "increment",
+      "speed",
+      "target_angle",
+      "expect_data",
+      "test_type"
+    ],
+    "original_model": "UltraArm_P1",
+    "python_files": [
+      "testcases/UltraArm_P1/test_10_jog_increment_angle.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "sheet": "jog_increment_angle",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/UltraArmP1Base.txt",
+      "sources/testcases/UltraArm_P1/conftest.py.txt",
+      "sources/testcases/UltraArm_P1/test_10_jog_increment_angle.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_jog_increment_angle0",
+      "test_jog_increment_angle_exception"
+    ],
+    "workbook": "UltraArm_P1.xlsx"
+  },
+  "model": "ultraarm_p1",
+  "name": "UltraArm_P1 / jog_increment_angle",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

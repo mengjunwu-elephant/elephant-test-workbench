@@ -1,0 +1,106 @@
+speed = 50
+init_angles = [0, 0, 0, 0, 0, 90, 0]
+
+def close(self):
+    self.ml.close()
+    self.mr.close()
+
+def go_zero(self):
+    self.ml.send_angles(self.init_angles, self.speed)
+    self.mr.send_angles(self.init_angles, self.speed)
+    self.mr.send_angle(11, 0, self.speed)
+    self.mr.send_angle(12, 0, self.speed)
+    self.mr.send_angle(13, 0, self.speed)
+
+def init_coords(self):
+    self.ml.send_angles(self.coords_init_angles, self.speed)
+    self.mr.send_angles(self.coords_init_angles, self.speed)
+
+def reset(self):
+    self.mr.power_off()
+    self.ml.power_off()
+    self.ml.power_on()
+    self.mr.power_on()
+
+def wait(self, timeout=30.0):
+    """等待机械臂停止运动（带超时）。"""
+    time.sleep(0.3)
+    from common1 import logger
+    start_time = time.time()
+    last_log_time = start_time
+    logger.info(f'当前左臂运动状态为{self.ml.is_moving()}，当前右臂运动状态为{self.mr.is_moving()}')
+    while self.ml.is_moving() or self.mr.is_moving():
+        if time.time() - start_time > timeout:
+            logger.error(f'机械臂运动超时（{timeout}秒）')
+            raise TimeoutError('机械臂运动超时')
+        current_time = time.time()
+        if current_time - last_log_time >= 1.0:
+            elapsed = current_time - start_time
+            left_status = '运动中' if self.ml.is_moving() else '已停止'
+            right_status = '运动中' if self.mr.is_moving() else '已停止'
+            logger.info(f'等待机械臂停止... 已等待{elapsed:.1f}秒 | 左臂:{left_status} | 右臂:{right_status}')
+            last_log_time = current_time
+    time.sleep(0.3)
+    logger.info('机械臂运动完成')
+
+def power_on_only(self):
+    self.mr.power_off()
+    self.ml.power_off()
+    self.ml.power_on_only()
+    self.mr.power_on_only()
+
+def power_off(self):
+    self.mr.power_off()
+    self.ml.power_off()
+
+def set_default_torque_comp(self):
+    torque_comp = [0, 0, 0, 0, 10, 30, 30]
+    for (i, c) in enumerate(torque_comp):
+        self.ml.set_torque_comp(i + 1, c)
+        self.mr.set_torque_comp(i + 1, c)
+
+def set_default_pos_over_shoot(self):
+    self.ml.set_pos_over_shoot(50)
+    self.mr.set_pos_over_shoot(50)
+
+def set_default_joint_min_angle(self):
+    for i in range(6):
+        self.ml.set_joint_min_angle(i + 1, self.angles_min[i])
+        self.mr.set_joint_min_angle(i + 1, self.angles_min[i])
+
+def set_default_joint_max_angle(self):
+    for i in range(6):
+        self.ml.set_joint_max_angle(i + 1, self.angles_max[i])
+        self.mr.set_joint_max_angle(i + 1, self.angles_max[i])
+
+def set_default_p(self):
+    for i in range(6):
+        self.ml.set_hand_gripper_p(i + 1, 100)
+
+def set_default_d(self):
+    for i in range(6):
+        self.ml.set_hand_gripper_d(i + 1, 120)
+
+def set_default_i(self):
+    for i in range(6):
+        self.ml.set_hand_gripper_i(i + 1, 0)
+
+def set_default_cw(self):
+    for i in range(6):
+        self.ml.set_hand_gripper_clockwise(i + 1, 5)
+
+def set_default_cww(self):
+    for i in range(6):
+        self.ml.set_hand_gripper_counterclockwise(i + 1, 5)
+
+def set_default_mini_pressure(self):
+    for i in range(6):
+        self.ml.set_hand_gripper_min_pressure(i + 1, 0)
+
+def set_default_torque(self):
+    for i in range(6):
+        self.ml.set_hand_gripper_torque(i + 1, 100)
+
+def set_default_speed(self):
+    for i in range(6):
+        self.ml.set_hand_gripper_speed(i + 1, 100)

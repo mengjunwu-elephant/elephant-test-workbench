@@ -1,0 +1,392 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "send_coords",
+      "coords": "[150, -62.0, 235.8, 178.86, 0.71, -88.87]",
+      "expect_data": 1,
+      "speed": 20,
+      "test_type": "normal",
+      "title": "插补模式下，运动x轴（正向）"
+    },
+    {
+      "ID": 2,
+      "api": "send_coords",
+      "coords": "[50, -62.0, 235.8, 178.86, 0.71, -88.87]",
+      "expect_data": 1,
+      "speed": 50,
+      "test_type": "normal",
+      "title": "插补模式下，运动x轴（反向）"
+    },
+    {
+      "ID": 3,
+      "api": "send_coords",
+      "coords": "[103.4, 0, 235.8, 178.86, 0.71, -88.87]",
+      "expect_data": 1,
+      "speed": 20,
+      "test_type": "normal",
+      "title": "插补模式下，运动y轴（正向）"
+    },
+    {
+      "ID": 4,
+      "api": "send_coords",
+      "coords": "[103.4, -120.0, 235.8, 178.86, 0.71, -88.87]",
+      "expect_data": 1,
+      "speed": 20,
+      "test_type": "normal",
+      "title": "插补模式下，运动y轴（反向）"
+    },
+    {
+      "ID": 5,
+      "api": "send_coords",
+      "coords": "[103.4, -62.0, 280, 178.86, 0.71, -88.87]",
+      "expect_data": 1,
+      "speed": 30,
+      "test_type": "normal",
+      "title": "插补模式下，运动z轴（正向）"
+    },
+    {
+      "ID": 6,
+      "api": "send_coords",
+      "coords": "[103.4, -62.0, 180, 178.86, 0.71, -88.87]",
+      "expect_data": 1,
+      "speed": 30,
+      "test_type": "normal",
+      "title": "插补模式下，运动z轴（反向）"
+    },
+    {
+      "ID": 7,
+      "api": "send_coords",
+      "coords": "[103.4, -62.0, 235.8, -150, 0.71, -88.87]",
+      "expect_data": 1,
+      "speed": 40,
+      "test_type": "normal",
+      "title": "插补模式下，运动rx轴（正向）"
+    },
+    {
+      "ID": 8,
+      "api": "send_coords",
+      "coords": "[103.4, -62.0, 235.8, 150, 0.71, -88.87]",
+      "expect_data": 1,
+      "speed": 40,
+      "test_type": "normal",
+      "title": "插补模式下，运动rx轴（反向）"
+    },
+    {
+      "ID": 9,
+      "api": "send_coords",
+      "coords": "[103.4, -62.0, 235.8, 178.86, 50, -88.87]",
+      "expect_data": 1,
+      "speed": 50,
+      "test_type": "normal",
+      "title": "插补模式下，运动ry轴（正向）"
+    },
+    {
+      "ID": 10,
+      "api": "send_coords",
+      "coords": "[103.4, -62.0, 235.8, 178.86, -50, -88.87]",
+      "expect_data": 1,
+      "speed": 50,
+      "test_type": "normal",
+      "title": "插补模式下，运动ry轴（反向）"
+    },
+    {
+      "ID": 11,
+      "api": "send_coords",
+      "coords": "[103.4, -62.0, 235.8, 178.86, 0.71, -20]",
+      "expect_data": 1,
+      "speed": 60,
+      "test_type": "normal",
+      "title": "插补模式下，运动rz轴（正向）"
+    },
+    {
+      "ID": 12,
+      "api": "send_coords",
+      "coords": "[103.4, -62.0, 235.8, 178.86, 0.71, -120]",
+      "expect_data": 1,
+      "speed": 60,
+      "test_type": "normal",
+      "title": "插补模式下，运动rz轴（反向）"
+    },
+    {
+      "ID": 13,
+      "api": "send_coords",
+      "coords": "[150, -62.0, 235.8, 178.86, 0.71, -88.87]",
+      "expect_data": 1,
+      "speed": 20,
+      "test_type": "normal1",
+      "title": "刷新模式下，运动x轴（正向）"
+    },
+    {
+      "ID": 14,
+      "api": "send_coords",
+      "coords": "[50, -62.0, 235.8, 178.86, 0.71, -88.87]",
+      "expect_data": 1,
+      "speed": 50,
+      "test_type": "normal1",
+      "title": "刷新模式下，运动x轴（反向）"
+    },
+    {
+      "ID": 15,
+      "api": "send_coords",
+      "coords": "[103.4, 0, 235.8, 178.86, 0.71, -88.87]",
+      "expect_data": 1,
+      "speed": 20,
+      "test_type": "normal1",
+      "title": "刷新模式下，运动y轴（正向）"
+    },
+    {
+      "ID": 16,
+      "api": "send_coords",
+      "coords": "[103.4, -120.0, 235.8, 178.86, 0.71, -88.87]",
+      "expect_data": 1,
+      "speed": 20,
+      "test_type": "normal1",
+      "title": "刷新模式下，运动y轴（反向）"
+    },
+    {
+      "ID": 17,
+      "api": "send_coords",
+      "coords": "[103.4, -62.0, 280, 178.86, 0.71, -88.87]",
+      "expect_data": 1,
+      "speed": 30,
+      "test_type": "normal1",
+      "title": "刷新模式下，运动z轴（正向）"
+    },
+    {
+      "ID": 18,
+      "api": "send_coords",
+      "coords": "[103.4, -62.0, 180, 178.86, 0.71, -88.87]",
+      "expect_data": 1,
+      "speed": 30,
+      "test_type": "normal1",
+      "title": "刷新模式下，运动z轴（反向）"
+    },
+    {
+      "ID": 19,
+      "api": "send_coords",
+      "coords": "[103.4, -62.0, 235.8, -150, 0.71, -88.87]",
+      "expect_data": 1,
+      "speed": 40,
+      "test_type": "normal1",
+      "title": "刷新模式下，运动rx轴（正向）"
+    },
+    {
+      "ID": 20,
+      "api": "send_coords",
+      "coords": "[103.4, -62.0, 235.8, 150, 0.71, -88.87]",
+      "expect_data": 1,
+      "speed": 40,
+      "test_type": "normal1",
+      "title": "刷新模式下，运动rx轴（反向）"
+    },
+    {
+      "ID": 21,
+      "api": "send_coords",
+      "coords": "[103.4, -62.0, 235.8, 178.86, 50, -88.87]",
+      "expect_data": 1,
+      "speed": 50,
+      "test_type": "normal1",
+      "title": "刷新模式下，运动ry轴（正向）"
+    },
+    {
+      "ID": 22,
+      "api": "send_coords",
+      "coords": "[103.4, -62.0, 235.8, 178.86, -50, -88.87]",
+      "expect_data": 1,
+      "speed": 50,
+      "test_type": "normal1",
+      "title": "刷新模式下，运动ry轴（反向）"
+    },
+    {
+      "ID": 23,
+      "api": "send_coords",
+      "coords": "[103.4, -62.0, 235.8, 178.86, 0.71, -20]",
+      "expect_data": 1,
+      "speed": 100,
+      "test_type": "normal1",
+      "title": "刷新模式下，运动rz轴（正向）"
+    },
+    {
+      "ID": 24,
+      "api": "send_coords",
+      "coords": "[103.4, -62.0, 235.8, 178.86, 0.71, -120]",
+      "expect_data": 1,
+      "speed": 100,
+      "test_type": "normal1",
+      "title": "刷新模式下，运动rz轴（反向）"
+    },
+    {
+      "ID": 25,
+      "api": "send_coords",
+      "coords": "[283 -62.0, 235.8, 178.86, 0.71, -88.87]",
+      "expect_data": null,
+      "speed": 20,
+      "test_type": "exception",
+      "title": "全关节运动，坐标超限，x轴"
+    },
+    {
+      "ID": 26,
+      "api": "send_coords",
+      "coords": "[-283, -62.0, 235.8, 178.86, 0.71, -88.87]",
+      "expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "全关节运动，坐标超限，x轴"
+    },
+    {
+      "ID": 27,
+      "api": "send_coords",
+      "coords": "[103.4, 283, 235.8, 178.86, 0.71, -88.87]",
+      "expect_data": null,
+      "speed": 20,
+      "test_type": "exception",
+      "title": "全关节运动，坐标超限，Y轴"
+    },
+    {
+      "ID": 28,
+      "api": "send_coords",
+      "coords": "[103.4, -283, 235.8, 178.86, 0.71, -88.87]",
+      "expect_data": null,
+      "speed": 20,
+      "test_type": "exception",
+      "title": "全关节运动，坐标超限，Y轴"
+    },
+    {
+      "ID": 29,
+      "api": "send_coords",
+      "coords": "[103.4, -62.0, -71, 178.86, 0.71, -88.87]",
+      "expect_data": null,
+      "speed": 30,
+      "test_type": "exception",
+      "title": "全关节运动，坐标超限，Z轴"
+    },
+    {
+      "ID": 30,
+      "api": "send_coords",
+      "coords": "[103.4, -62.0, 414, 178.86, 0.71, -88.87]",
+      "expect_data": null,
+      "speed": 30,
+      "test_type": "exception",
+      "title": "全关节运动，坐标超限，Z轴"
+    },
+    {
+      "ID": 31,
+      "api": "send_coords",
+      "coords": "[103.4, -62.0, 235.8, 178.86, 0.71, -88.87]",
+      "expect_data": null,
+      "speed": 0,
+      "test_type": "exception",
+      "title": "全关节运动，速度超限"
+    },
+    {
+      "ID": 32,
+      "api": "send_coords",
+      "coords": "[103.4, -62.0, 235.8, 178.86, 0.71, -88.87]",
+      "expect_data": null,
+      "speed": 101,
+      "test_type": "exception",
+      "title": "全关节运动，速度超限"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-f99ed8f7d35fe22051e19f0c",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "coords",
+      "speed",
+      "expect_data",
+      "test_type"
+    ],
+    "original_model": "mycobot_280",
+    "python_files": [
+      "testcases/mycobot_280/test_20_send_coords.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33
+    ],
+    "sheet": "send_coords",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/Mycobot280Base.txt",
+      "sources/testcases/mycobot_280/test_20_send_coords.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_send_coords0",
+      "test_send_coords1",
+      "test_send_coords_exception"
+    ],
+    "workbook": "mycobot_280.xlsx"
+  },
+  "model": "mycobot280",
+  "name": "mycobot_280 / send_coords",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

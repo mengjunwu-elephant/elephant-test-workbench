@@ -1,0 +1,5 @@
+{
+  "name": "填写本次发布的 SDK 环境名称",
+  "requirements": ["pymycobot==填写实际版本", "pytest==填写匹配版本", "openpyxl==填写匹配版本", "allure-pytest==填写匹配版本"],
+  "sha256": {}
+}

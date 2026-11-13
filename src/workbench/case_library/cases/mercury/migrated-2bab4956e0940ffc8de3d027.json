@@ -1,0 +1,195 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "set_limit_switch",
+      "l_expect_data": 1,
+      "parameter_1": 1,
+      "parameter_2": 0,
+      "r_expect_data": 1,
+      "test_type": "normal",
+      "title": "关闭位置超差"
+    },
+    {
+      "ID": 2,
+      "api": "set_limit_switch",
+      "l_expect_data": 1,
+      "parameter_1": 1,
+      "parameter_2": 1,
+      "r_expect_data": 1,
+      "test_type": "normal",
+      "title": "开启位置超差"
+    },
+    {
+      "ID": 3,
+      "api": "set_limit_switch",
+      "l_expect_data": 1,
+      "parameter_1": 2,
+      "parameter_2": 1,
+      "r_expect_data": 1,
+      "test_type": "normal",
+      "title": "开启到位反馈"
+    },
+    {
+      "ID": 4,
+      "api": "set_limit_switch",
+      "l_expect_data": 1,
+      "parameter_1": 2,
+      "parameter_2": 0,
+      "r_expect_data": 1,
+      "test_type": "normal",
+      "title": "关闭到位反馈"
+    },
+    {
+      "ID": 5,
+      "api": "set_limit_switch",
+      "l_expect_data": 1,
+      "parameter_1": 2,
+      "parameter_2": 0,
+      "r_expect_data": 1,
+      "test_type": "logic",
+      "title": "关闭到位反馈，查看运动接口是否生效"
+    },
+    {
+      "ID": 6,
+      "api": "set_limit_switch",
+      "l_expect_data": 0,
+      "parameter_1": 2,
+      "parameter_2": 1,
+      "r_expect_data": 0,
+      "test_type": "logic",
+      "title": "打开到位反馈，查看运动接口是否生效"
+    },
+    {
+      "ID": 7,
+      "api": "set_limit_switch",
+      "l_expect_data": null,
+      "parameter_1": 3,
+      "parameter_2": 0,
+      "r_expect_data": null,
+      "test_type": "exception",
+      "title": "设置参数1超限"
+    },
+    {
+      "ID": 8,
+      "api": "set_limit_switch",
+      "l_expect_data": null,
+      "parameter_1": 0,
+      "parameter_2": 1,
+      "r_expect_data": null,
+      "test_type": "exception",
+      "title": "设置参数1超限"
+    },
+    {
+      "ID": 9,
+      "api": "set_limit_switch",
+      "l_expect_data": null,
+      "parameter_1": 1,
+      "parameter_2": -1,
+      "r_expect_data": null,
+      "test_type": "exception",
+      "title": "设置参数2超限"
+    },
+    {
+      "ID": 10,
+      "api": "set_limit_switch",
+      "l_expect_data": null,
+      "parameter_1": 2,
+      "parameter_2": 2,
+      "r_expect_data": null,
+      "test_type": "exception",
+      "title": "设置参数2超限"
+    },
+    {
+      "ID": 11,
+      "api": "set_limit_switch",
+      "l_expect_data": "[1,1]",
+      "parameter_1": 2,
+      "parameter_2": 0,
+      "r_expect_data": "[1,1]",
+      "test_type": "save_or_not",
+      "title": "掉电不保存检查"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-2bab4956e0940ffc8de3d027",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "parameter_1",
+      "parameter_2",
+      "l_expect_data",
+      "r_expect_data",
+      "test_type"
+    ],
+    "original_model": "mercury",
+    "python_files": [
+      "testcases/mercury/test_5_set_limit_switch.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "sheet": "set_limit_switch",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/MercuryBase.txt",
+      "sources/testcases/mercury/test_5_set_limit_switch.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_out_limit",
+      "test_position_feedback",
+      "test_save_or_not",
+      "test_set_limit_switch_normal"
+    ],
+    "workbook": "mercury.xlsx"
+  },
+  "model": "mercury",
+  "name": "mercury / set_limit_switch",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "angles": "[-165,0,90,0]",
+      "api": "set_angles",
+      "expect_data": "ok",
+      "speed": 50,
+      "test_type": "normal",
+      "title": "使一关节运动到负限位"
+    },
+    {
+      "ID": 2,
+      "angles": "[165,0,90,0]",
+      "api": "set_angles",
+      "expect_data": "ok",
+      "speed": 30,
+      "test_type": "normal",
+      "title": "使一关节运动到正限位"
+    },
+    {
+      "ID": 3,
+      "angles": "[0,-18,130,0]",
+      "api": "set_angles",
+      "expect_data": "ok",
+      "speed": 20,
+      "test_type": "normal",
+      "title": "使二关节运动到负限位"
+    },
+    {
+      "ID": 4,
+      "angles": "[0,85,100,0]",
+      "api": "set_angles",
+      "expect_data": "ok",
+      "speed": 100,
+      "test_type": "normal",
+      "title": "使二关节运动到正限位"
+    },
+    {
+      "ID": 5,
+      "angles": "[0,0,89,0]",
+      "api": "set_angles",
+      "expect_data": "ok",
+      "speed": 53,
+      "test_type": "normal",
+      "title": "使三关节运动到负限位"
+    },
+    {
+      "ID": 6,
+      "angles": "[0,70,200,0]",
+      "api": "set_angles",
+      "expect_data": "ok",
+      "speed": 32,
+      "test_type": "normal",
+      "title": "使三关节运动到正限位"
+    },
+    {
+      "ID": 7,
+      "angles": "[0,0,90,-179]",
+      "api": "set_angles",
+      "expect_data": "ok",
+      "speed": 25,
+      "test_type": "normal",
+      "title": "使四关节运动到负限位"
+    },
+    {
+      "ID": 8,
+      "angles": "[0,0,90,179]",
+      "api": "set_angles",
+      "expect_data": "ok",
+      "speed": 35,
+      "test_type": "normal",
+      "title": "使四关节运动到正限位"
+    },
+    {
+      "ID": 25,
+      "angles": "[-166,0,90,0]",
+      "api": "set_angles",
+      "expect_data": null,
+      "speed": 50,
+      "test_type": "exception",
+      "title": "全关节运动，角度超限"
+    },
+    {
+      "ID": 26,
+      "angles": "[166,0,90,0]",
+      "api": "set_angles",
+      "expect_data": null,
+      "speed": 51,
+      "test_type": "exception",
+      "title": "全关节运动，角度超限"
+    },
+    {
+      "ID": 27,
+      "angles": "[0,-19,90,0]",
+      "api": "set_angles",
+      "expect_data": null,
+      "speed": 52,
+      "test_type": "exception",
+      "title": "全关节运动，角度超限"
+    },
+    {
+      "ID": 28,
+      "angles": "[0,86,90,0]",
+      "api": "set_angles",
+      "expect_data": null,
+      "speed": 53,
+      "test_type": "exception",
+      "title": "全关节运动，角度超限"
+    },
+    {
+      "ID": 29,
+      "angles": "[0,0,88,0]",
+      "api": "set_angles",
+      "expect_data": null,
+      "speed": 54,
+      "test_type": "exception",
+      "title": "全关节运动，角度超限"
+    },
+    {
+      "ID": 30,
+      "angles": "[0,0,201,0]",
+      "api": "set_angles",
+      "expect_data": null,
+      "speed": 55,
+      "test_type": "exception",
+      "title": "全关节运动，角度超限"
+    },
+    {
+      "ID": 31,
+      "angles": "[0,0,90,-180]",
+      "api": "set_angles",
+      "expect_data": null,
+      "speed": 56,
+      "test_type": "exception",
+      "title": "全关节运动，角度超限"
+    },
+    {
+      "ID": 32,
+      "angles": "[0,0,90,180]",
+      "api": "set_angles",
+      "expect_data": null,
+      "speed": 57,
+      "test_type": "exception",
+      "title": "全关节运动，角度超限"
+    },
+    {
+      "ID": 37,
+      "angles": "[150,0,90,0]",
+      "api": "set_angles",
+      "expect_data": null,
+      "speed": 0,
+      "test_type": "exception",
+      "title": "全关节运动，速度超限"
+    },
+    {
+      "ID": 38,
+      "angles": "[0,-20,90,0]",
+      "api": "set_angles",
+      "expect_data": null,
+      "speed": 101,
+      "test_type": "exception",
+      "title": "全关节运动，速度超限"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-5bfa605814ac89d45ea80c25",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "angles",
+      "speed",
+      "expect_data",
+      "test_type"
+    ],
+    "original_model": "UltraArm_P1",
+    "python_files": [
+      "testcases/UltraArm_P1/test_3_set_angles.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "sheet": "set_angles",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/UltraArmP1Base.txt",
+      "sources/testcases/UltraArm_P1/conftest.py.txt",
+      "sources/testcases/UltraArm_P1/test_3_set_angles.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_set_angles0",
+      "test_set_angles_exception"
+    ],
+    "workbook": "UltraArm_P1.xlsx"
+  },
+  "model": "ultraarm_p1",
+  "name": "UltraArm_P1 / set_angles",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

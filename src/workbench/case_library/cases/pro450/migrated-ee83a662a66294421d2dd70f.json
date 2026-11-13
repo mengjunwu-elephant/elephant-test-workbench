@@ -1,0 +1,124 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "is_init_calibration",
+      "expect_data": 1,
+      "parameter": null,
+      "test_type": "normal",
+      "title": "是否设置零位"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": true,
+  "id": "migrated-ee83a662a66294421d2dd70f",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "parameter",
+      "expect_data",
+      "test_type"
+    ],
+    "conversion": "单函数只读流程完整转换，连接建立/关闭由本项目会话管理；尚未实机验收",
+    "original_model": "mycobot_450",
+    "python_files": [
+      "testcases/mycobot_450/test_13_is_init_calibration.py"
+    ],
+    "review_reasons": [],
+    "rows": [
+      2
+    ],
+    "sheet": "is_init_calibration",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/Mycobot450Base.txt",
+      "sources/testcases/mycobot_450/conftest.py.txt",
+      "sources/testcases/mycobot_450/test_13_is_init_calibration.py.txt"
+    ],
+    "status": "converted_readonly",
+    "test_functions": [
+      "test_is_init_calibration"
+    ],
+    "workbook": "mycobot_450.xlsx"
+  },
+  "model": "pro450",
+  "name": "mycobot_450 / is_init_calibration",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "is_init_calibration",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "converted-1",
+      "kind": "read",
+      "kwargs": {},
+      "message": "",
+      "method": "",
+      "name": "is_init_calibration",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "response",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    },
+    {
+      "actual": {
+        "$ref": "response"
+      },
+      "api": "",
+      "args": [],
+      "assertion": "instance",
+      "expected": "int",
+      "expected_exception": "",
+      "id": "converted-2",
+      "kind": "assert",
+      "kwargs": {},
+      "message": "",
+      "method": "",
+      "name": "核对原断言",
+      "parameters": {},
+      "phase": "verify",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    },
+    {
+      "actual": {
+        "$ref": "response"
+      },
+      "api": "",
+      "args": [],
+      "assertion": "value_eq",
+      "expected": {
+        "$ref": "params.expect_data"
+      },
+      "expected_exception": "",
+      "id": "converted-3",
+      "kind": "assert",
+      "kwargs": {},
+      "message": "",
+      "method": "",
+      "name": "核对原断言",
+      "parameters": {},
+      "phase": "verify",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

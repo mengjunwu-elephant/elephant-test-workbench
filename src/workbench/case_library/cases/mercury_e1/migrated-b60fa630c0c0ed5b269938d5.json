@@ -1,0 +1,351 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 1,
+      "state": 1,
+      "test_type": "normal",
+      "title": "设置1号引脚"
+    },
+    {
+      "ID": 2,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 1,
+      "state": 0,
+      "test_type": "normal",
+      "title": "设置1号引脚"
+    },
+    {
+      "ID": 3,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 2,
+      "state": 1,
+      "test_type": "normal",
+      "title": "设置2号引脚"
+    },
+    {
+      "ID": 4,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 2,
+      "state": 0,
+      "test_type": "normal",
+      "title": "设置2号引脚"
+    },
+    {
+      "ID": 5,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 3,
+      "state": 1,
+      "test_type": "normal",
+      "title": "设置3号引脚"
+    },
+    {
+      "ID": 6,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 3,
+      "state": 0,
+      "test_type": "normal",
+      "title": "设置3号引脚"
+    },
+    {
+      "ID": 7,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 4,
+      "state": 1,
+      "test_type": "normal",
+      "title": "设置4号引脚"
+    },
+    {
+      "ID": 8,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 4,
+      "state": 0,
+      "test_type": "normal",
+      "title": "设置4号引脚"
+    },
+    {
+      "ID": 9,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 5,
+      "state": 1,
+      "test_type": "normal",
+      "title": "设置5号引脚"
+    },
+    {
+      "ID": 10,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 5,
+      "state": 0,
+      "test_type": "normal",
+      "title": "设置5号引脚"
+    },
+    {
+      "ID": 11,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 6,
+      "state": 1,
+      "test_type": "normal",
+      "title": "设置6号引脚"
+    },
+    {
+      "ID": 12,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 6,
+      "state": 0,
+      "test_type": "normal",
+      "title": "设置6号引脚"
+    },
+    {
+      "ID": 13,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 7,
+      "state": 1,
+      "test_type": "normal",
+      "title": "设置7号引脚"
+    },
+    {
+      "ID": 14,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 7,
+      "state": 0,
+      "test_type": "normal",
+      "title": "设置7号引脚"
+    },
+    {
+      "ID": 15,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 8,
+      "state": 1,
+      "test_type": "normal",
+      "title": "设置8号引脚"
+    },
+    {
+      "ID": 16,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 8,
+      "state": 0,
+      "test_type": "normal",
+      "title": "设置8号引脚"
+    },
+    {
+      "ID": 17,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 9,
+      "state": 1,
+      "test_type": "normal",
+      "title": "设置9号引脚"
+    },
+    {
+      "ID": 18,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 9,
+      "state": 0,
+      "test_type": "normal",
+      "title": "设置9号引脚"
+    },
+    {
+      "ID": 19,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 10,
+      "state": 1,
+      "test_type": "normal",
+      "title": "设置10号引脚"
+    },
+    {
+      "ID": 20,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 10,
+      "state": 0,
+      "test_type": "normal",
+      "title": "设置10号引脚"
+    },
+    {
+      "ID": 21,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 11,
+      "state": 1,
+      "test_type": "normal",
+      "title": "设置11号引脚"
+    },
+    {
+      "ID": 22,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 11,
+      "state": 0,
+      "test_type": "normal",
+      "title": "设置11号引脚"
+    },
+    {
+      "ID": 23,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 12,
+      "state": 1,
+      "test_type": "normal",
+      "title": "设置12号引脚"
+    },
+    {
+      "ID": 24,
+      "api": "set_base_io_output",
+      "expect_data": 1,
+      "pin_no": 12,
+      "state": 0,
+      "test_type": "normal",
+      "title": "设置12号引脚"
+    },
+    {
+      "ID": 25,
+      "api": "set_base_io_output",
+      "expect_data": null,
+      "pin_no": 13,
+      "state": 1,
+      "test_type": "exception",
+      "title": "设置引脚超限"
+    },
+    {
+      "ID": 26,
+      "api": "set_base_io_output",
+      "expect_data": null,
+      "pin_no": 0,
+      "state": 0,
+      "test_type": "exception",
+      "title": "设置引脚超限"
+    },
+    {
+      "ID": 27,
+      "api": "set_base_io_output",
+      "expect_data": null,
+      "pin_no": 1,
+      "state": 2,
+      "test_type": "exception",
+      "title": "设置引脚状态超限"
+    },
+    {
+      "ID": 28,
+      "api": "set_base_io_output",
+      "expect_data": null,
+      "pin_no": 1,
+      "state": -1,
+      "test_type": "exception",
+      "title": "设置引脚状态超限"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-b60fa630c0c0ed5b269938d5",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "pin_no",
+      "state",
+      "expect_data",
+      "test_type"
+    ],
+    "original_model": "mercury_e1",
+    "python_files": [
+      "testcases/mercury_e1/test_56_set_base_io_output.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "sheet": "set_base_io_output",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/MercuryE1Base.txt",
+      "sources/testcases/mercury_e1/test_56_set_base_io_output.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_set_base_io_output1",
+      "test_set_base_io_output_exception"
+    ],
+    "workbook": "mercury_e1.xlsx"
+  },
+  "model": "mercury_e1",
+  "name": "mercury_e1 / set_base_io_output",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

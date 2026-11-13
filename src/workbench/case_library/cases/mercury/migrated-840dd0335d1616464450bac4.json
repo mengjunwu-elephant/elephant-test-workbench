@@ -1,0 +1,161 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "get_joint_max_angle",
+      "id": 1,
+      "l_expect_data": 165,
+      "r_expect_data": 165,
+      "test_type": "normal",
+      "title": "正确获取1关节软件限位最大值"
+    },
+    {
+      "ID": 2,
+      "api": "get_joint_max_angle",
+      "id": 2,
+      "l_expect_data": 120,
+      "r_expect_data": 120,
+      "test_type": "normal",
+      "title": "正确获取2关节软件限位最大值"
+    },
+    {
+      "ID": 3,
+      "api": "get_joint_max_angle",
+      "id": 3,
+      "l_expect_data": 165,
+      "r_expect_data": 165,
+      "test_type": "normal",
+      "title": "正确获取3关节软件限位最大值"
+    },
+    {
+      "ID": 4,
+      "api": "get_joint_max_angle",
+      "id": 4,
+      "l_expect_data": 1,
+      "r_expect_data": 1,
+      "test_type": "normal",
+      "title": "正确获取4关节软件限位最大值"
+    },
+    {
+      "ID": 5,
+      "api": "get_joint_max_angle",
+      "id": 5,
+      "l_expect_data": 165,
+      "r_expect_data": 165,
+      "test_type": "normal",
+      "title": "正确获取5关节软件限位最大值"
+    },
+    {
+      "ID": 6,
+      "api": "get_joint_max_angle",
+      "id": 6,
+      "l_expect_data": 255,
+      "r_expect_data": 255,
+      "test_type": "normal",
+      "title": "正确获取6关节软件限位最大值"
+    },
+    {
+      "ID": 7,
+      "api": "get_joint_max_angle",
+      "id": 7,
+      "l_expect_data": 165,
+      "r_expect_data": 165,
+      "test_type": "normal",
+      "title": "正确获取7关节软件限位最大值"
+    },
+    {
+      "ID": 8,
+      "api": "get_joint_max_angle",
+      "id": 8,
+      "l_expect_data": null,
+      "r_expect_data": null,
+      "test_type": "exception",
+      "title": "获取关节软件限位最大值（超限）"
+    },
+    {
+      "ID": 9,
+      "api": "get_joint_max_angle",
+      "id": 0,
+      "l_expect_data": null,
+      "r_expect_data": null,
+      "test_type": "exception",
+      "title": "获取关节软件限位最大值（超限）"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-840dd0335d1616464450bac4",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "id",
+      "l_expect_data",
+      "r_expect_data",
+      "test_type"
+    ],
+    "original_model": "mercury",
+    "python_files": [
+      "testcases/mercury/test_43_get_joint_max_angle.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "sheet": "get_joint_max_angle",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/MercuryBase.txt",
+      "sources/testcases/mercury/test_43_get_joint_max_angle.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_get_joint_max_angle_exception",
+      "test_get_joint_max_angle_normal"
+    ],
+    "workbook": "mercury.xlsx"
+  },
+  "model": "mercury",
+  "name": "mercury / get_joint_max_angle",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

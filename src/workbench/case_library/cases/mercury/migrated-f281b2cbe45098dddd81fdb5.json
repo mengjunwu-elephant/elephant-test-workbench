@@ -1,0 +1,215 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "is_in_positon",
+      "l_expect_data": 1,
+      "mode": 0,
+      "parameter": "[0, 20, 0, -90, 0, 90, 0]",
+      "r_expect_data": 1,
+      "test_type": "normal",
+      "title": "判断当前角度是否在点位上（在点位±1°）"
+    },
+    {
+      "ID": 2,
+      "api": "is_in_positon",
+      "l_expect_data": 0,
+      "mode": 0,
+      "parameter": "[1.1, 20, 0, -90, 0, 90, 0]",
+      "r_expect_data": 0,
+      "test_type": "normal",
+      "title": "判断当前角度是否在点位上（不在点位超过±1°）"
+    },
+    {
+      "ID": 3,
+      "api": "is_in_positon",
+      "l_expect_data": 1,
+      "mode": 1,
+      "parameter": "[322.5, 1, 158.3, -180.0, 20.0, 0.0]",
+      "r_expect_data": 1,
+      "test_type": "normal",
+      "title": "判读当前坐标是否在点位上（在点位±0.2mm，欧拉角±一度）"
+    },
+    {
+      "ID": 4,
+      "api": "is_in_positon",
+      "l_expect_data": 0,
+      "mode": 1,
+      "parameter": "[322.5, 2, 158.3, -180.0, 20.0, 0.0]",
+      "r_expect_data": 0,
+      "test_type": "normal",
+      "title": "判读当前坐标是否在点位上（不在点位超过±0.2mm）"
+    },
+    {
+      "ID": 5,
+      "api": "is_in_positon",
+      "l_expect_data": 0,
+      "mode": 1,
+      "parameter": "[322.5, 0.0, 158.3, -180.0, 20.0, 2]",
+      "r_expect_data": 0,
+      "test_type": "normal",
+      "title": "判读当前坐标是否在点位上（不在点位欧拉角超过1°）"
+    },
+    {
+      "ID": 6,
+      "api": "is_in_positon",
+      "l_expect_data": 1,
+      "mode": 2,
+      "parameter": "[375.0, 213.1, 196.1, 89.99, 0.0, -31.99]",
+      "r_expect_data": 1,
+      "test_type": "left",
+      "title": "判读当前base坐标是否在点位上（在点位±0.2mm，欧拉角±一度）"
+    },
+    {
+      "ID": 7,
+      "api": "is_in_positon",
+      "l_expect_data": 0,
+      "mode": 2,
+      "parameter": "[378, 213.1, 196.1, 89.99, 0.0, -31.99]",
+      "r_expect_data": 0,
+      "test_type": "left",
+      "title": "判读当前base坐标是否在点位上（不在点位超过±0.2mm）"
+    },
+    {
+      "ID": 8,
+      "api": "is_in_positon",
+      "l_expect_data": 0,
+      "mode": 2,
+      "parameter": "[375.0, 213.1, 196.1, 89.99, 1.1, -31.99]",
+      "r_expect_data": 0,
+      "test_type": "left",
+      "title": "判读当前base坐标是否在点位上（不在点位欧拉角超过1°）"
+    },
+    {
+      "ID": 9,
+      "api": "is_in_positon",
+      "l_expect_data": null,
+      "mode": 2,
+      "parameter": "[375.0, -213.1, 196.1, -89.99, 2, 32.0]",
+      "r_expect_data": 0,
+      "test_type": "right",
+      "title": "判读当前base坐标是否在点位上（在点位±0.2mm，欧拉角±一度）"
+    },
+    {
+      "ID": 10,
+      "api": "is_in_positon",
+      "l_expect_data": null,
+      "mode": 2,
+      "parameter": "[378.0, -213.1, 196.1, -89.99, 0.0, 32.0]",
+      "r_expect_data": 0,
+      "test_type": "right",
+      "title": "判读当前base坐标是否在点位上（不在点位超过±0.2mm）"
+    },
+    {
+      "ID": 11,
+      "api": "is_in_positon",
+      "l_expect_data": null,
+      "mode": 2,
+      "parameter": "[375.0, -213.1, 196.1, -89.99,2, 32.0]",
+      "r_expect_data": 0,
+      "test_type": "right",
+      "title": "判读当前base坐标是否在点位上（不在点位欧拉角超过1°）"
+    },
+    {
+      "ID": 12,
+      "api": "is_in_positon",
+      "l_expect_data": null,
+      "mode": -1,
+      "parameter": "[375.0, -214, 196.1, -89.99, 0.0, 32.0]",
+      "r_expect_data": null,
+      "test_type": "exception",
+      "title": "设置mode超限"
+    },
+    {
+      "ID": 13,
+      "api": "is_in_positon",
+      "l_expect_data": null,
+      "mode": 3,
+      "parameter": "[375.0, -213.1, 196.1, -92, 0.0, 32.0]",
+      "r_expect_data": null,
+      "test_type": "exception",
+      "title": "设置mode超限"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-f281b2cbe45098dddd81fdb5",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "parameter",
+      "mode",
+      "l_expect_data",
+      "r_expect_data",
+      "test_type"
+    ],
+    "original_model": "mercury",
+    "python_files": [
+      "testcases/mercury/test_29_is_in_position.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "sheet": "is_in_position",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/MercuryBase.txt",
+      "sources/testcases/mercury/test_29_is_in_position.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_is_in_position_exception",
+      "test_is_in_position_normal"
+    ],
+    "workbook": "mercury.xlsx"
+  },
+  "model": "mercury",
+  "name": "mercury / is_in_position",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

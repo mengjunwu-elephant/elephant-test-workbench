@@ -1,0 +1,160 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "set_hand_gripper_pinch_action_speed_consort",
+      "expect_data": 1,
+      "is_free": 1,
+      "pose": 0,
+      "rank": 5,
+      "test_type": "normal",
+      "title": "设置全关节回零"
+    },
+    {
+      "ID": 2,
+      "api": "set_hand_gripper_pinch_action_speed_consort",
+      "expect_data": 1,
+      "is_free": 1,
+      "pose": 1,
+      "rank": 5,
+      "test_type": "normal",
+      "title": "设置食指与拇指捏合"
+    },
+    {
+      "ID": 3,
+      "api": "set_hand_gripper_pinch_action_speed_consort",
+      "expect_data": 1,
+      "is_free": 1,
+      "pose": 2,
+      "rank": 5,
+      "test_type": "normal",
+      "title": "设置中指与拇指捏合"
+    },
+    {
+      "ID": 4,
+      "api": "set_hand_gripper_pinch_action_speed_consort",
+      "expect_data": 1,
+      "is_free": 1,
+      "pose": 3,
+      "rank": 5,
+      "test_type": "normal",
+      "title": "设置食指与中指捏合"
+    },
+    {
+      "ID": 5,
+      "api": "set_hand_gripper_pinch_action_speed_consort",
+      "expect_data": 1,
+      "is_free": 1,
+      "pose": 4,
+      "rank": 15,
+      "test_type": "normal",
+      "title": "设置三指合拢"
+    },
+    {
+      "ID": 6,
+      "api": "set_hand_gripper_pinch_action_speed_consort",
+      "expect_data": null,
+      "is_free": null,
+      "pose": 5,
+      "rank": 1,
+      "test_type": "exception",
+      "title": "设置pose参数超限"
+    },
+    {
+      "ID": 7,
+      "api": "set_hand_gripper_pinch_action_speed_consort",
+      "expect_data": null,
+      "is_free": null,
+      "pose": 4,
+      "rank": 16,
+      "test_type": "exception",
+      "title": "设置rank参数超限"
+    },
+    {
+      "ID": 8,
+      "api": "set_hand_gripper_pinch_action_speed_consort",
+      "expect_data": null,
+      "is_free": 2,
+      "pose": 0,
+      "rank": 1,
+      "test_type": "exception",
+      "title": "设置is_free参数超限"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-7fe77ceb52159491883f821e",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "pose",
+      "rank",
+      "is_free",
+      "expect_data",
+      "test_type"
+    ],
+    "original_model": "mercury_my_hand",
+    "python_files": [
+      "testcases/mercury_my_hand/test_set_hand_gripper_pinch_action_speed_consort.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "sheet": "set_hand_gripper_pose",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/MercuryBase.txt",
+      "sources/testcases/mercury_my_hand/test_set_hand_gripper_pinch_action_speed_consort.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_set_hand_gripper_pinch_action_speed_consort_exception",
+      "test_set_hand_gripper_pinch_action_speed_consort_normal"
+    ],
+    "workbook": "mercury_my_hand.xlsx"
+  },
+  "model": "mercury",
+  "name": "mercury_my_hand / set_hand_gripper_pose",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

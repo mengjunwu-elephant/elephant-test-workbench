@@ -1,0 +1,76 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "get_collision_mode",
+      "expect_data": 1,
+      "test_type": "normal",
+      "title": "正确获取碰撞检测模式"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-fa18ad629d7714f46409ba9e",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "expect_data",
+      "test_type"
+    ],
+    "original_model": "mercury_e1",
+    "python_files": [
+      "testcases/mercury_e1/test_61_get_collision_mode.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2
+    ],
+    "sheet": "get_collision_mode",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/MercuryE1Base.txt",
+      "sources/testcases/mercury_e1/test_61_get_collision_mode.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_get_collision_mode"
+    ],
+    "workbook": "mercury_e1.xlsx"
+  },
+  "model": "mercury_e1",
+  "name": "mercury_e1 / get_collision_mode",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

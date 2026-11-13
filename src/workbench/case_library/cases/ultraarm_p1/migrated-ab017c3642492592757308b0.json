@@ -1,0 +1,150 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "set_collision_threshold",
+      "expect_data": "ok",
+      "joint_id": 1,
+      "restore_threshold": 3,
+      "test_type": "normal",
+      "threshold": 1,
+      "title": "设置J1碰撞阈值"
+    },
+    {
+      "ID": 2,
+      "api": "set_collision_threshold",
+      "expect_data": "ok",
+      "joint_id": 2,
+      "restore_threshold": 3,
+      "test_type": "normal",
+      "threshold": 3,
+      "title": "设置J2碰撞阈值"
+    },
+    {
+      "ID": 3,
+      "api": "set_collision_threshold",
+      "expect_data": "ok",
+      "joint_id": 3,
+      "restore_threshold": 3,
+      "test_type": "normal",
+      "threshold": 4,
+      "title": "设置J3碰撞阈值"
+    },
+    {
+      "ID": 4,
+      "api": "set_collision_threshold",
+      "expect_data": "ok",
+      "joint_id": 4,
+      "restore_threshold": 3,
+      "test_type": "normal",
+      "threshold": 0.6,
+      "title": "设置J4碰撞阈值"
+    },
+    {
+      "ID": 5,
+      "api": "set_collision_threshold",
+      "expect_data": "ok",
+      "joint_id": 1,
+      "restore_threshold": 3,
+      "test_type": "normal",
+      "threshold": 0.4,
+      "title": "设置碰撞阈值超限"
+    },
+    {
+      "ID": 6,
+      "api": "set_collision_threshold",
+      "expect_data": null,
+      "joint_id": 2,
+      "restore_threshold": 3,
+      "test_type": "exception",
+      "threshold": 5.1,
+      "title": "设置碰撞阈值超限"
+    },
+    {
+      "ID": 7,
+      "api": "set_collision_threshold",
+      "expect_data": null,
+      "joint_id": 5,
+      "restore_threshold": 3,
+      "test_type": "exception",
+      "threshold": 1,
+      "title": "关节号越界"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-ab017c3642492592757308b0",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "joint_id",
+      "threshold",
+      "expect_data",
+      "test_type",
+      "restore_threshold"
+    ],
+    "original_model": "UltraArm_P1",
+    "python_files": [
+      "testcases/UltraArm_P1/test_70_set_collision_threshold.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "sheet": "set_collision_threshold",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/UltraArmP1Base.txt",
+      "sources/testcases/UltraArm_P1/conftest.py.txt",
+      "sources/testcases/UltraArm_P1/test_70_set_collision_threshold.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_set_collision_threshold",
+      "test_set_collision_threshold_exception"
+    ],
+    "workbook": "UltraArm_P1.xlsx"
+  },
+  "model": "ultraarm_p1",
+  "name": "UltraArm_P1 / set_collision_threshold",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

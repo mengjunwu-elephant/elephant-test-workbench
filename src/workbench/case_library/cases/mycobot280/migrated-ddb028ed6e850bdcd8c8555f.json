@@ -1,0 +1,94 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "power_off",
+      "expect_data": -1,
+      "is_power_on_status": 0,
+      "move_status": -1,
+      "parameters": null,
+      "test_type": "power_off",
+      "title": "机械臂下电情况下电,且是否能够运动"
+    },
+    {
+      "ID": 2,
+      "api": "power_off",
+      "expect_data": 1,
+      "is_power_on_status": 0,
+      "move_status": -1,
+      "parameters": null,
+      "test_type": "power_on",
+      "title": "机械臂上电情况下电，且是否能够运动"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "migrated-ddb028ed6e850bdcd8c8555f",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "parameters",
+      "expect_data",
+      "is_power_on_status",
+      "move_status",
+      "test_type"
+    ],
+    "original_model": "mycobot_280",
+    "python_files": [
+      "testcases/mycobot_280/test_7_power_off.py"
+    ],
+    "review_reasons": [
+      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+    ],
+    "rows": [
+      2,
+      3
+    ],
+    "sheet": "power_off",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/Mycobot280Base.txt",
+      "sources/testcases/mycobot_280/test_7_power_off.py.txt"
+    ],
+    "status": "needs_review",
+    "test_functions": [
+      "test_power_off",
+      "test_power_on"
+    ],
+    "workbook": "mycobot_280.xlsx"
+  },
+  "model": "mycobot280",
+  "name": "mycobot_280 / power_off",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "migration-review",
+      "kind": "review",
+      "kwargs": {},
+      "message": "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行",
+      "method": "",
+      "name": "待完善原测试逻辑",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}
