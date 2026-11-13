@@ -8,6 +8,7 @@ type Props = { document: CaseDoc; setDocument: (value: CaseDoc) => void; cases: 
 export function Builder({ document: doc, setDocument, cases, capabilities, methods, onSaved, onRun }: Props) {
   const { message } = App.useApp();
   const [active, setActive] = useState(0);
+  const [persistedId,setPersistedId]=useState('');
   const [saving, setSaving] = useState(false);
   const index = Math.min(active, doc.steps.length - 1);
   const selected = doc.steps[index];
@@ -23,13 +24,13 @@ export function Builder({ document: doc, setDocument, cases, capabilities, metho
   const save = async () => {
     setSaving(true);
     try {
-      const exists = cases.some(item => item.id === doc.id);
+      const exists = cases.some(item => item.id === doc.id) || persistedId===doc.id;
       const result = exists ? await put<CaseDoc>('/cases/' + doc.id, doc) : await post<CaseDoc>('/cases', doc);
-      setDocument(result); onSaved(); message.success('草稿已保存在本机');
+      setPersistedId(result.id); setDocument(result); onSaved(); message.success('草稿已保存在本机'); return result;
     } catch (error) { message.error(String(error)); } finally { setSaving(false); }
   };
   const clone = async () => {
-    try { const result = await post<CaseDoc>('/cases/' + doc.id + '/fork'); setDocument(result); onSaved(); message.success('已复制为可编辑草稿'); } catch (error) { message.error(String(error)); }
+    try { const result = await post<CaseDoc>('/cases/' + doc.id + '/fork'); setPersistedId(result.id); setDocument(result); onSaved(); message.success('已复制为可编辑草稿'); } catch (error) { message.error(String(error)); }
   };
   const chooseTemplate = (value: string) => {
     if (value === 'parameter') {
@@ -55,7 +56,7 @@ export function Builder({ document: doc, setDocument, cases, capabilities, metho
     setActive(0);
   };
   return <>
-    <div className="toolbar"><Input aria-label="用例名称" value={doc.name} onChange={e => change({ name: e.target.value })} style={{ width: 270 }} disabled={readonly} /><Select aria-label="使用流程模板" placeholder="使用流程模板" style={{ width: 160 }} onChange={chooseTemplate} disabled={readonly} options={[{ value: 'motion', label: '运动与恢复模板' }, { value: 'parameter', label: '设置后读回模板' }]} /><Tag>v{doc.revision} · {readonly ? '共享正式版' : '个人草稿'}</Tag><Space className="toolbar-right">{readonly ? <Button onClick={clone}>复制为草稿</Button> : <Button loading={saving} onClick={save}>保存草稿</Button>}<Button type="primary" disabled={doc.enabled === false} onClick={() => onRun({ kind: 'cases', inline_cases: [doc] })}>执行当前用例</Button></Space></div>
+    <div className="toolbar"><Input aria-label="用例名称" value={doc.name} onChange={e => change({ name: e.target.value })} style={{ width: 270 }} disabled={readonly} /><Select aria-label="使用流程模板" placeholder="使用流程模板" style={{ width: 160 }} onChange={chooseTemplate} disabled={readonly} options={[{ value: 'motion', label: '运动与恢复模板' }, { value: 'parameter', label: '设置后读回模板' }]} /><Tag>v{doc.revision} · {readonly ? '共享正式版' : '个人草稿'}</Tag><Space className="toolbar-right">{readonly ? <Button onClick={clone}>复制为草稿</Button> : <Button loading={saving} onClick={save}>保存草稿</Button>}<Button type="primary" disabled={doc.enabled === false} onClick={async () => { const saved = readonly ? doc : await save(); if (saved) onRun({ kind:'cases', case_ids:[saved.id] }); }}>保存并准备试跑</Button></Space></div>
     {doc.migration?.workbook && <Panel title="迁移审核"><p>{doc.migration.workbook} / {doc.migration.sheet} · {doc.datasets.length} 组原始参数</p><p>{(doc.migration.review_reasons || []).join('；')}</p><p className="muted small">参考用例库中的迁移来源，将待完善步骤替换为实际前置、执行、验证和恢复。原始字符串未自动 eval，需按接口预期转换类型。</p></Panel>}
     <div className="section"><Checkbox disabled={readonly || doc.steps.some(s => s.kind === 'review')} checked={doc.enabled !== false} onChange={e => change({ enabled:e.target.checked })}>启用用例（已核对参数、前置、断言与恢复）</Checkbox></div>
     <div className="builder-grid"><section className="step-library"><h3>步骤库</h3><p className="muted">选择后加入流程</p>{Object.entries(kinds).filter(([key]) => key !== 'review').map(([key, label]) => <Button key={key} block disabled={readonly} onClick={() => add(key)}>＋ {label}</Button>)}<p className="muted small">复杂逻辑通过公共方法复用。前序结果可通过“引用”传给后续步骤。</p></section>

@@ -20,6 +20,7 @@ from .environments import creation_options
 from .models import RunRequest, uid
 from .storage import Store, Task, DeviceLock, Environment, Case, now
 from .worker import PREFIX
+from .plans import resolve_cases, fingerprint
 from .processes import terminate_worker
 
 TERMINAL = {"completed", "failed", "blocked", "stopped", "interrupted"}
@@ -76,6 +77,28 @@ class TaskManager:
                 raise HTTPException(400, "请先导入并启用离线 SDK 环境")
             return env.python, {"id": env.id, **env.details}
 
+    def preview(self, request):
+        with self.gate:
+            cases, plan = resolve_cases(self.store, request)
+            _, environment = self.resolve_environment(request)
+            for case in cases:
+                if case.get('sdk_requirement') and environment.get('sdk_version','') not in SpecifierSet(case['sdk_requirement']):
+                    raise HTTPException(409,'用例SDK版本条件不满足：'+case['name'])
+                available={m['id']:m['version'] for m in METHODS}
+                if any(available.get(k)!=v for k,v in case.get('method_versions',{}).items()):
+                    raise HTTPException(409,'公共方法版本不满足：'+case['name'])
+            with self.store.session() as s:
+                held=[s.get(DeviceLock,key) for key in resource_keys(request.connection.model_dump())]
+                if any(lock and lock.quarantined for lock in held):
+                    raise HTTPException(409,'上次连接已失效，请重新连接')
+                owners={lock.task_id for lock in held if lock}
+                if owners:
+                    owner=s.get(Task,next(iter(owners))) if len(owners)==1 else None
+                    if not owner or owner.kind!='connection' or owner.state!='connected' or owner.id in self.session_jobs:
+                        raise HTTPException(409,'设备正在连接、执行任务或状态无效，请等待可用后预检')
+            from .case_repository import CaseRepository
+            return {'fingerprint':fingerprint({'cases':cases,'plan':plan,'connection':request.connection.model_dump(),'environment':environment}), 'plan':plan, 'cases':cases, 'instance_count':request.repeat if request.kind=='latency' else sum(len(c['datasets']) for c in cases)*(request.repeat if request.kind=='aging' else 1), 'provenance':CaseRepository(self.store,self).provenance(cases,plan), 'environment':environment}
+
     def start(self, request: RunRequest):
         with self.gate:
             if request.connection.model not in {x["id"] for x in MODELS}:
@@ -89,24 +112,7 @@ class TaskManager:
             if request.connection.model == "mercury" and not request.connection.second_address.strip():
                 raise HTTPException(400, "双臂需要配置左右串口")
             python, environment = self.resolve_environment(request)
-            cases = [c.model_dump() for c in request.inline_cases]
-            with self.store.session() as s:
-                for inline in cases:
-                    if inline.get("status") == "shared":
-                        published = s.get(Case, inline["id"])
-                        if not published or published.document != inline:
-                            raise HTTPException(409, "共享正式版不可临时改写后冒充原版本执行，请先复制为草稿")
-                stored = s.scalars(select(Case)).all()
-                for row in stored:
-                    doc = row.document
-                    if (request.all_cases or row.id in request.case_ids) and doc["model"] == request.connection.model:
-                        if request.all_cases and not doc.get('enabled', True):
-                            continue
-                        if doc.get("category") == "manual" and not request.include_manual:
-                            continue
-                        cases.append(doc)
-            if request.kind in ("cases", "aging") and not cases:
-                raise HTTPException(400, "没有选中适用于当前机型的用例")
+            cases, plan = resolve_cases(self.store, request)
             for case in cases:
                 if not case.get('enabled', True):
                     raise HTTPException(409, '用例尚待完成迁移或人工审核，不能执行：'+case['name'])
@@ -118,9 +124,14 @@ class TaskManager:
                 available = {m["id"]: m["version"] for m in METHODS}
                 if any(available.get(k) != v for k, v in case.get("method_versions", {}).items()):
                     raise HTTPException(409, "公共方法版本不匹配，请更新平台或使用匹配用例")
+            prepared_fingerprint = fingerprint({'cases':cases,'plan':plan,'connection':request.connection.model_dump(),'environment':environment})
+            if request.expected_fingerprint and request.expected_fingerprint != prepared_fingerprint:
+                raise HTTPException(409, '预检后用例、计划、连接或环境已变化，请重新预检')
             task_id = uid()
             resource = resource_key(request.connection.model_dump())
-            snapshot = {"platform_version": __version__, "system": platform.system(), "environment": environment, "cases": cases, "methods": METHODS, "model": request.connection.model, "source": "hardware"}
+            snapshot = {"platform_version": __version__, "system": platform.system(), "environment": environment, "cases": cases, "methods": METHODS, "model": request.connection.model, "source": "hardware", "plan": plan, "failure_policy": plan["failure_policy"] if plan else "continue"}
+            from .case_repository import CaseRepository
+            snapshot['provenance'] = CaseRepository(self.store, self).provenance(cases, plan)
             with self.store.session() as s:
                 held=[s.get(DeviceLock,key) for key in resource_keys(request.connection.model_dump())]
                 owners={lock.task_id for lock in held if lock}
@@ -158,9 +169,14 @@ class TaskManager:
                     owner_id=owner.id
                 else:
                     owner_id=None
+            if plan:
+                request_data = request.model_dump()
+                request_data['failure_policy'] = plan['failure_policy']
+            else:
+                request_data = request.model_dump()
             if owner_id:
                 run_dir=self.store.run_dir(task_id)
-                payload={'request':request.model_dump(),'cases':cases}
+                payload={'request':request_data,'cases':cases}
                 (run_dir/'snapshot.json').write_text(json.dumps(snapshot,ensure_ascii=False,indent=2),encoding='utf-8')
                 (run_dir/'payload.json').write_text(json.dumps(payload,ensure_ascii=False),encoding='utf-8')
                 self.session_jobs[owner_id]=task_id
@@ -183,7 +199,7 @@ class TaskManager:
             except IntegrityError as exc:
                 raise HTTPException(409, "当前连接已被任务占用，或处于状态待核实隔离状态") from exc
             run_dir = self.store.run_dir(task_id)
-            payload = {"request": request.model_dump(), "cases": cases}
+            payload = {"request": request_data, "cases": cases}
             (run_dir / "snapshot.json").write_text(json.dumps(snapshot, ensure_ascii=False, indent=2), encoding="utf-8")
             (run_dir / "payload.json").write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
             command = [python, "-u", "-m", "workbench.worker", "--payload", str(run_dir / "payload.json")]

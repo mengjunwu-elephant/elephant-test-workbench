@@ -15,3 +15,7 @@ export function newCase(model: string): CaseDoc {
   return { id: crypto.randomUUID(), name: '新的测试用例', model, description: '', category: 'normal', sdk_requirement: '', method_versions: {}, parameters: {}, datasets: [{}], steps: [{ ...newStep('read'), name: '读取状态', save_as: 'result' }], revision: 1, status: 'draft', shared_id: '', base_shared_revision: 0 };
 }
 
+
+export type PlanItem = { item_id:string; case_id:string; content_hash:string; dataset_indices:number[]; overrides:Record<string,any>; repeat:number };
+export type TestPlan = { id:string; name:string; model:string; revision:number; description:string; archived:boolean; failure_policy:'continue'|'stop'; items:PlanItem[]; definitions:Record<string,CaseDoc> };
+export const newPlan = (model:string):TestPlan => ({id:crypto.randomUUID(),name:'新的测试计划',model,revision:1,description:'',archived:false,failure_policy:'continue',items:[],definitions:{}});

@@ -85,7 +85,11 @@ class Connection(BaseModel):
 
 class RunRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
-    kind: Literal["cases", "latency", "aging", "debug", "connection"] = "cases"
+    kind: Literal["cases", "plan", "latency", "aging", "debug", "connection"] = "cases"
+    plan_id: str = ''
+    plan_revision: int | None = None
+    expected_fingerprint: str = ''
+    parameter_overrides: dict[str, Any] = Field(default_factory=dict)
     connection: Connection = Field(default_factory=Connection)
     case_ids: list[str] = Field(default_factory=list)
     inline_cases: list[CaseDocument] = Field(default_factory=list)
@@ -111,4 +115,33 @@ class HubLogin(BaseModel):
 class PublishRequest(BaseModel):
     document: CaseDocument
     base_revision: int = Field(default=0, ge=0)
+
+
+class PlanItem(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    item_id: str = Field(default_factory=uid)
+    case_id: str
+    content_hash: str = ''
+    dataset_indices: list[int] = Field(default_factory=list)
+    overrides: dict[str, Any] = Field(default_factory=dict)
+    repeat: int = Field(default=1, ge=1, le=1000)
+
+
+class PlanDocument(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    id: str = Field(default_factory=uid, pattern=r'^[A-Za-z0-9_-]{1,128}$')
+    name: str = Field(min_length=1, max_length=200)
+    model: str
+    revision: int = Field(default=1, ge=1)
+    description: str = ''
+    archived: bool = False
+    failure_policy: Literal['continue', 'stop'] = 'continue'
+    items: list[PlanItem] = Field(min_length=1, max_length=500)
+    definitions: dict[str, CaseDocument] = Field(default_factory=dict)
+
+    @model_validator(mode='after')
+    def unique_items(self):
+        if len({item.item_id for item in self.items}) != len(self.items):
+            raise ValueError('计划条目ID不可重复，同一用例重复加入需独立条目')
+        return self
 

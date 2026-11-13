@@ -9,6 +9,8 @@ MODELS = [
 ]
 
 METHODS = [
+    {"id":"delay","name":"有界延时","version":"1.0","parameters":{"seconds":0.3},"description":"按显式秒数等待，支持取消，不超过步骤超时。"},
+    {"id":"value_length","name":"读取数据长度","version":"1.0","parameters":{"value":{"$ref":"result"}},"description":"仅对字符串、数组、对象取长度，不执行表达式。"},
     {"id": "wait_motion", "name": "等待运动完成", "version": "1.0", "parameters": {"timeout": 15, "poll_interval": 0.1}, "description": "执行端有界等待；运动状态接口按机型适配。"},
     {"id": "set_read_verify", "name": "设置后读回验证", "version": "1.0", "parameters": {"set_api": "", "set_args": [], "get_api": "", "get_args": [], "expected": None, "tolerance": 0}, "description": "设置、读回与比较；具体 SDK 方法由当前环境提供。"},
     {"id": "restore_saved", "name": "恢复已保存状态", "version": "1.0", "parameters": {"api": "set_angles", "value": {"$ref": "initial_angles"}, "extra_args": [20], "verify_api": "get_angles_info", "tolerance": 0.1}, "description": "恢复前序保存状态并验证，不推断所有机型都有相同接口。"},

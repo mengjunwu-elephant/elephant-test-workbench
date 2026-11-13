@@ -75,8 +75,25 @@
     "python_files": [
       "testcases/mycobot_450/test_32_is_in_position.py"
     ],
+    "remediation": {
+      "covered_source_rows": [],
+      "generated_case_ids": [],
+      "hardware_acceptance": "not_verified",
+      "ledger": "remediation-ledger.json",
+      "remaining_source_rows": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "state": "blocked"
+    },
     "review_reasons": [
-      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+      "源行 21：原回零恢复没有可确认的读回容差，需补恢复验证依据",
+      "源行 39：源行 40：需受控运行期表达式：device.coords_init_angles",
+      "源行 69：源行 70：需受控运行期表达式：device.coords_init_angles"
     ],
     "rows": [
       2,

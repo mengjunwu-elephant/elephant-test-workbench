@@ -43,6 +43,10 @@ def test_repository_roundtrip_conflict_and_source_deletion(tmp_path):
         repo.save()
     with repo.store.session() as s:
         assert s.get(Case,doc['id']).document['name']=='本机编辑'
+    preserved=repo.load(preserve_local=True)
+    assert preserved['preserved_local_conflicts']==[doc['id']]
+    with repo.store.session() as s:
+        assert s.get(Case,doc['id']).document['name']=='本机编辑'
     path.write_text(json.dumps(doc),encoding='utf-8')
     assert repo.save()['saved']==1
     assert json.loads(path.read_text(encoding='utf-8'))['name']=='本机编辑'
@@ -76,8 +80,11 @@ def test_migrated_assets_are_complete_and_review_steps_cannot_be_enabled():
     library=Path(__file__).resolve().parents[1]/'src/workbench/case_library'
     manifest=json.loads((library/'migration-manifest.json').read_text(encoding='utf-8'))
     docs=[CaseDocument.model_validate_json(p.read_text(encoding='utf-8')) for p in library.glob('cases/*/*.json')]
-    assert len(docs)==manifest['imported_documents']==456
-    assert sum(len(d.datasets) for d in docs)==manifest['data_row_count']==3232
+    originals=[d for d in docs if d.id.startswith('migrated-')]
+    assert len(originals)==manifest['imported_documents']==456
+    ledger=json.loads((library/'remediation-ledger.json').read_text(encoding='utf-8'))
+    assert len(docs)==456+ledger['summary']['generated_scenarios']
+    assert sum(len(d.datasets) for d in originals)==manifest['data_row_count']==3232
     assert sum(d.enabled for d in docs)==manifest['executable_documents']==14
     assert len({d.id for d in docs})==len(docs)
     for doc in docs:
@@ -86,7 +93,7 @@ def test_migrated_assets_are_complete_and_review_steps_cannot_be_enabled():
             assert (library/ref).is_file()
         if doc.enabled:
             assert all(s.kind in ('read','assert') for s in doc.steps)
-        else:
+        elif any(step.kind=='review' for step in doc.steps):
             with pytest.raises(ValueError,match='替换'):
                 CaseDocument.model_validate({**doc.model_dump(),'enabled':True})
 

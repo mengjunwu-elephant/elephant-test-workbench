@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "elephant-test-workbench"
-version = "0.4.0"
+version = "0.5.0"
 description = "Local robot test workbench with offline SDK environments and LAN case sharing"
 readme = "README.md"
 requires-python = ">=3.10"

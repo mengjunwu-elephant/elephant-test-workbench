@@ -84,8 +84,34 @@
     "python_files": [
       "testcases/mycobot_450/test_18_get_comm_error_counts.py"
     ],
+    "remediation": {
+      "covered_source_rows": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "generated_case_ids": [
+        "scenario-6fb25023eeb17d6a6a18b22e",
+        "scenario-8c6e7cfc8f91f52cf8d58cdc",
+        "scenario-aeb828fe4b579052f7b3969c",
+        "scenario-fcb402433cece672122f1640",
+        "scenario-327c6fbc085733abda26e78e",
+        "scenario-17ad76376c1e8bd9411f2ad1",
+        "scenario-5e0bd0b96009386b5af504ed",
+        "scenario-0e9c22310fbcfb0671fa837e"
+      ],
+      "hardware_acceptance": "not_verified",
+      "ledger": "remediation-ledger.json",
+      "remaining_source_rows": [],
+      "state": "superseded"
+    },
     "review_reasons": [
-      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+      "已由分场景定义承接，原聚合定义保留作为来源；请查看整改台账"
     ],
     "rows": [
       2,
@@ -105,6 +131,16 @@
       "sources/testcases/mycobot_450/test_18_get_comm_error_counts.py.txt"
     ],
     "status": "needs_review",
+    "superseded_by": [
+      "scenario-6fb25023eeb17d6a6a18b22e",
+      "scenario-8c6e7cfc8f91f52cf8d58cdc",
+      "scenario-aeb828fe4b579052f7b3969c",
+      "scenario-fcb402433cece672122f1640",
+      "scenario-327c6fbc085733abda26e78e",
+      "scenario-17ad76376c1e8bd9411f2ad1",
+      "scenario-5e0bd0b96009386b5af504ed",
+      "scenario-0e9c22310fbcfb0671fa837e"
+    ],
     "test_functions": [
       "test_get_comm_error_counts1",
       "test_get_comm_error_counts_exception"

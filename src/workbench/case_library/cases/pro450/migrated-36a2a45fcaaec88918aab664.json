@@ -28,8 +28,20 @@
     "python_files": [
       "testcases/mycobot_450/test_55_get_servo_status.py"
     ],
+    "remediation": {
+      "covered_source_rows": [
+        2
+      ],
+      "generated_case_ids": [
+        "scenario-caeb52c118802788e09089cc"
+      ],
+      "hardware_acceptance": "not_verified",
+      "ledger": "remediation-ledger.json",
+      "remaining_source_rows": [],
+      "state": "superseded"
+    },
     "review_reasons": [
-      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+      "已由分场景定义承接，原聚合定义保留作为来源；请查看整改台账"
     ],
     "rows": [
       2
@@ -42,6 +54,9 @@
       "sources/testcases/mycobot_450/test_55_get_servo_status.py.txt"
     ],
     "status": "needs_review",
+    "superseded_by": [
+      "scenario-caeb52c118802788e09089cc"
+    ],
     "test_functions": [
       "test_get_servo_status1"
     ],

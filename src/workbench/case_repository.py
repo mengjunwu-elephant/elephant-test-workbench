@@ -11,8 +11,8 @@ import threading
 from fastapi import HTTPException
 from sqlalchemy import select
 
-from .models import CaseDocument
-from .storage import Case, now
+from .models import CaseDocument, PlanDocument
+from .storage import Case, Plan, now
 
 
 def digest(document):
@@ -22,6 +22,12 @@ def digest(document):
         step['timeout'] = float(step['timeout'])
         step['tolerance'] = float(step['tolerance'])
     return hashlib.sha256(json.dumps(normalized, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+
+
+def plan_digest(document):
+    doc=PlanDocument.model_validate(document).model_dump()
+    doc['definitions']={key:digest(value) for key,value in doc['definitions'].items()}
+    return hashlib.sha256(json.dumps(doc,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
 
 
 class CaseRepository:
@@ -43,8 +49,9 @@ class CaseRepository:
             documents[doc['id']] = (doc, path)
         return documents
 
-    def load(self, startup=False):
+    def load(self, startup=False, preserve_local=False):
         with self.gate, self.manager.gate:
+            plan_updates, plan_deleted, plan_baseline = self.prepare_plan_load(startup)
             documents = self.files()
             baseline = self.store.get_setting('case_repository_baseline', {})
             conflicts, updates, deleted = [], [], []
@@ -65,7 +72,7 @@ class CaseRepository:
                             conflicts.append(key)
                         elif row:
                             deleted.append(row)
-                if conflicts:
+                if conflicts and not preserve_local:
                     raise HTTPException(409, {'message':'存在本机未写回编辑，请先处理差异，未覆盖任何用例', 'case_ids':conflicts})
                 for doc in updates:
                     s.merge(Case(id=doc['id'], document=doc, updated_at=now()))
@@ -74,7 +81,66 @@ class CaseRepository:
                     s.delete(row)
                     baseline.pop(row.id, None)
             self.store.set_setting('case_repository_baseline', baseline)
-            return {'loaded': len(updates), 'deleted': len(deleted), 'file_count':len(documents)}
+            with self.store.session() as s:
+                for doc in plan_updates:
+                    s.merge(Plan(id=doc['id'],document=doc,updated_at=now()))
+                for key in plan_deleted:
+                    row=s.get(Plan,key)
+                    if row:s.delete(row)
+            self.store.set_setting('plan_repository_baseline',plan_baseline)
+            return {'loaded': len(updates), 'deleted': len(deleted), 'file_count':len(documents),'plans_loaded':len(plan_updates),'preserved_local_conflicts':conflicts}
+
+    def plan_files(self):
+        result={}
+        for path in sorted(self.library.glob('plans/*.json')):
+            if not path.resolve().is_relative_to(self.library):
+                raise HTTPException(400,'计划路径不安全')
+            doc=PlanDocument.model_validate_json(path.read_text(encoding='utf-8')).model_dump()
+            if doc['id'] in result:raise HTTPException(409,'计划ID重复')
+            for item in doc['items']:
+                definition=doc['definitions'].get(item['content_hash'])
+                if not definition or digest(definition)!=item['content_hash'] or definition['id']!=item['case_id'] or definition['model']!=doc['model']:
+                    raise HTTPException(409,'计划引用快照校验失败')
+                if any(i<0 or i>=len(definition['datasets']) for i in item['dataset_indices']):
+                    raise HTTPException(409,'计划数据组越界')
+            result[doc['id']]=(doc,path)
+        return result
+
+    def prepare_plan_load(self,startup):
+        files=self.plan_files()
+        baseline=self.store.get_setting('plan_repository_baseline',{})
+        updates,deleted=[],[]
+        with self.store.session() as s:
+            for key,(doc,_) in files.items():
+                row=s.get(Plan,key)
+                if row and plan_digest(row.document)!=plan_digest(doc):
+                    if startup:continue
+                    if key not in baseline or plan_digest(row.document)!=baseline[key]:
+                        raise HTTPException(409,'本机计划有未写回编辑：'+key)
+                updates.append(doc);baseline[key]=plan_digest(doc)
+            if not startup:
+                for key in baseline.keys()-files.keys():
+                    row=s.get(Plan,key)
+                    if row and plan_digest(row.document)!=baseline[key]:raise HTTPException(409,'计划删除与本机编辑冲突：'+key)
+                    deleted.append(key)
+                for key in deleted:baseline.pop(key,None)
+        return updates,deleted,baseline
+
+    def provenance(self,cases,plan=None):
+        files=self.files()
+        selected={doc['id'] for doc in cases}
+        hashes={doc['id']:doc.get('_entry',{}).get('content_hash',digest({k:v for k,v in doc.items() if k!='_entry'})) for doc in cases}
+        local=any(key not in files or digest(files[key][0])!=hashes[key] for key in selected)
+        if plan:
+            disk=self.plan_files().get(plan['id'])
+            local=local or not disk or plan_digest(disk[0])!=plan_digest(plan)
+        head=None;dirty=True
+        try:
+            head=self.git('rev-parse','HEAD')
+            relative=self.library.relative_to(self.checkout).as_posix()
+            dirty=bool(self.git('status','--porcelain','--',relative))
+        except (HTTPException,ValueError):pass
+        return {'source':'local_draft' if local or dirty else 'saved_git','git_head_context':head,'asset_commit':head if not local and not dirty else None,'related_content_hashes':hashes,'asset_files_dirty':dirty,'hardware_validation':'not_inferred_from_conversion'}
 
     def writable(self):
         if not self.checkout or not self.library.is_relative_to(self.checkout):
@@ -85,6 +151,14 @@ class CaseRepository:
             self.writable()
             disk = self.files()
             baseline = self.store.get_setting('case_repository_baseline', {})
+            plan_disk=self.plan_files()
+            plan_baseline=self.store.get_setting('plan_repository_baseline',{})
+            with self.store.session() as s:
+                plan_docs=[PlanDocument.model_validate(row.document).model_dump() for row in s.scalars(select(Plan))]
+            for doc in plan_docs:
+                previous=plan_disk.get(doc['id'])
+                if (not previous and doc['id'] in plan_baseline) or (previous and plan_digest(previous[0])!=plan_digest(doc) and plan_digest(previous[0])!=plan_baseline.get(doc['id'])):
+                    raise HTTPException(409,'计划文件已变化，拒绝覆盖：'+doc['id'])
             pending = []
             with self.store.session() as s:
                 docs = [CaseDocument.model_validate(row.document).model_dump() for row in s.scalars(select(Case)) if row.document.get('status') == 'draft']
@@ -107,7 +181,15 @@ class CaseRepository:
                 temporary.replace(path)
                 baseline[doc['id']] = digest(doc)
             self.store.set_setting('case_repository_baseline', baseline)
-            return {'saved':len(pending), 'directory':str(self.library)}
+            for doc in plan_docs:
+                path=plan_disk[doc['id']][1] if doc['id'] in plan_disk else self.library/'plans'/(doc['id']+'.json')
+                if not path.resolve().is_relative_to(self.library):raise HTTPException(400,'计划路径不安全')
+                path.parent.mkdir(parents=True,exist_ok=True)
+                temporary=path.with_suffix('.json.tmp')
+                temporary.write_text(json.dumps(doc,ensure_ascii=False,sort_keys=True,indent=2)+'\n',encoding='utf-8')
+                temporary.replace(path);plan_baseline[doc['id']]=plan_digest(doc)
+            self.store.set_setting('plan_repository_baseline',plan_baseline)
+            return {'saved':len(pending), 'plans_saved':len(plan_docs), 'directory':str(self.library)}
 
     def git(self, *args):
         self.writable()
@@ -126,6 +208,12 @@ class CaseRepository:
         with self.store.session() as s:
             local = {row.id:digest(row.document) for row in s.scalars(select(Case)) if row.document.get('status') == 'draft'}
         result = {'directory':str(self.library), 'file_count':len(files), 'local_changes':sum(value != baseline.get(key) for key,value in local.items()), 'disk_changes':sum(digest(doc) != baseline.get(key) for key,(doc,_) in files.items())+len(baseline.keys()-files.keys()), 'git_available':False}
+        plans=self.plan_files();plan_baseline=self.store.get_setting('plan_repository_baseline',{})
+        with self.store.session() as s:
+            plan_local={p.id:plan_digest(p.document) for p in s.scalars(select(Plan))}
+        result['plan_count']=len(plans)
+        result['local_changes']+=sum(v!=plan_baseline.get(k) for k,v in plan_local.items())
+        result['disk_changes']+=sum(plan_digest(d)!=plan_baseline.get(k) for k,(d,_) in plans.items())+len(plan_baseline.keys()-plans.keys())
         try:
             relative = self.library.relative_to(self.checkout).as_posix() if self.checkout else ''
             result.update(git_available=True, git_status=self.git('status','--short','--',relative), diff=self.git('diff','HEAD','--',relative)[:50000] if self.git('rev-list','--all','--count') != '0' else '首次提交：尚无 HEAD；请审查用例文件及 Git 状态', has_remote=bool(self.git('remote')))

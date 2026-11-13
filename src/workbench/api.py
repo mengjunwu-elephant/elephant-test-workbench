@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import copy
 import json
 import os
 import sqlite3
@@ -23,12 +24,13 @@ from sqlalchemy import select, update
 from . import __version__
 from .catalog import MODELS, METHODS
 from .environments import EnvironmentManager, creation_options
-from .models import CaseDocument, RunRequest, HubLogin, PublishRequest, uid
+from .models import CaseDocument, RunRequest, HubLogin, PublishRequest, PlanDocument, uid
 from .sharing import Sharing
-from .storage import Store, Case, Task, DeviceLock, Environment, data_home, now
+from .storage import Store, Case, Plan, Task, DeviceLock, Environment, data_home, now
 from .tasks import TaskManager, TERMINAL
 from .instance import InstanceLock
 from .case_repository import CaseRepository
+from .plans import save_plan
 
 
 def serialize(row):
@@ -150,6 +152,45 @@ def create_app(root: Path | None = None) -> FastAPI:
     @app.get('/api/case-repository/source/{case_id}')
     def migration_source(case_id: str):
         return repository.source(case_id)
+
+    @app.get('/api/plans')
+    def list_plans():
+        with store.session() as s:
+            return [p.document for p in s.scalars(select(Plan).order_by(Plan.updated_at.desc()))]
+
+    @app.post('/api/plans',status_code=201)
+    def new_plan(body: PlanDocument):
+        with manager.gate:
+            return save_plan(store,body,creating=True)
+
+    @app.put('/api/plans/{plan_id}')
+    def update_plan(plan_id: str,body: PlanDocument):
+        if body.id!=plan_id:raise HTTPException(409,'计划ID不一致')
+        with manager.gate:
+            return save_plan(store,body)
+
+    @app.post('/api/plans/{plan_id}/fork',status_code=201)
+    def fork_plan(plan_id: str):
+        with manager.gate,store.session() as s:
+            row=s.get(Plan,plan_id)
+            if not row:raise HTTPException(404,'计划不存在')
+            doc=copy.deepcopy(row.document)
+            doc.update(id=uid(),name=(doc['name']+' · 副本')[:200],revision=1,archived=False)
+            for item in doc['items']:item['item_id']=uid()
+            s.add(Plan(id=doc['id'],document=doc))
+            return doc
+
+    @app.post('/api/tasks/preview')
+    def preview_task(body: RunRequest):
+        try:
+            return {'ready':True,**manager.preview(body)}
+        except HTTPException as exc:
+            return {'ready':False,'errors':[exc.detail]}
+
+    @app.get('/api/remediation')
+    def remediation():
+        path=repository.library/'remediation-ledger.json'
+        return json.loads(path.read_text(encoding='utf-8')) if path.is_file() else {'status':'not_generated','entries':[]}
 
     @app.post("/api/cases", status_code=201)
     def new_case(body: CaseDocument):

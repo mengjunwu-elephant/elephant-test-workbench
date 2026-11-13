@@ -8,7 +8,7 @@ async function nav(page: any, name: string) {
 test('独立应用十个模块、真实迁移用例和窄屏布局', async ({ page, request }) => {
   expect((await request.get('/api/cases')).ok()).toBeTruthy();
   const initial=await (await request.get('/api/cases')).json();
-  expect(initial.length).toBe(456);
+  expect(initial.length).toBeGreaterThanOrEqual(456);
   await page.goto('/');
   await expect(page.getByRole('status',{name:'设备连接状态'})).toBeVisible();
   await expect(page.locator('nav button')).toHaveCount(10);
@@ -36,6 +36,7 @@ test('设置和设备页面没有旧工程或模拟入口', async ({ page }) => 
 });
 
 test('独立创建和保存用例，不连接设备', async ({ page, request }) => {
+  const before=(await (await request.get('/api/cases')).json()).length;
   await page.goto('/'); await nav(page,'用例库');
   await expect(page.getByRole('tab',{name:'原 Python / Excel'})).toHaveCount(0);
   await page.getByRole('button',{name:'新增用例',exact:true}).click();
@@ -44,7 +45,7 @@ test('独立创建和保存用例，不连接设备', async ({ page, request }) 
   await page.getByRole('button',{name:'保存草稿',exact:true}).click();
   await expect(page.getByText('草稿已保存在本机')).toBeVisible();
   const cases=await (await request.get('/api/cases')).json();
-  expect(cases.length).toBe(457);
+  expect(cases.length).toBe(before+1);
   expect(cases.some((c:any)=>c.name==='独立草稿 · 等待现场填写')).toBeTruthy();
   expect(await (await request.get('/api/tasks')).json()).toEqual([]);
 });
@@ -130,6 +131,7 @@ test('迁移用例载入后可查看来源，待完善条目不能直接执行',
   expect(cases.some((c:any)=>c.migration?.workbook)).toBeTruthy();
   await request.put('/api/settings/connection',{data:{mode:'hardware',model:'ultraarm_p1',address:'',baudrate:115200}});
   await page.goto('/');await nav(page,'用例库');
+  await page.getByText('版本与同步',{exact:true}).click();
   await expect(page.getByText('用例文件与 Git 同步',{exact:true})).toBeVisible();
   await expect(page.getByRole('button',{name:'迁移来源',exact:true}).first()).toBeVisible();
   await page.getByRole('button',{name:'迁移来源',exact:true}).first().click();
@@ -138,4 +140,43 @@ test('迁移用例载入后可查看来源，待完善条目不能直接执行',
   await expect(page.getByRole('dialog')).toHaveCount(0);
   await page.setViewportSize({width:390,height:844});
   await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBeTruthy();
+});
+
+
+test('单例编辑归库，A-B-A计划保存固定版本，统一运行页只预检不启动', async ({page,request})=>{
+  const model='ultraarm_p1';
+  for(const id of ['ui-case-a','ui-case-b']) {
+    const created=await request.post('/api/cases',{data:{id,name:id==='ui-case-a'?'界面用例 A':'界面用例 B',model,steps:[{id:'read',name:'读取位置',kind:'read',api:'get_angles_info'}]}});
+    expect(created.ok()).toBeTruthy();
+  }
+  await request.put('/api/settings/connection',{data:{mode:'hardware',model,address:'',baudrate:115200}});
+  await page.goto('/'); await nav(page,'用例编排');
+  await page.getByRole('searchbox',{name:'筛选计划可选用例'}).fill('界面用例');
+  await page.getByRole('button',{name:'＋ 界面用例 A',exact:true}).click();
+  await page.getByRole('button',{name:'＋ 界面用例 B',exact:true}).click();
+  await page.getByRole('button',{name:'＋ 界面用例 A',exact:true}).click();
+  await page.getByRole('textbox',{name:'计划名称'}).fill('界面 A-B-A');
+  await page.getByRole('button',{name:'保存计划',exact:true}).click();
+  await expect(page.getByText('计划已保存，引用版本已固定',{exact:true})).toBeVisible();
+  const plans=await (await request.get('/api/plans')).json();
+  const plan=plans.find((p:any)=>p.name==='界面 A-B-A');
+  expect(plan.items.map((i:any)=>i.case_id)).toEqual(['ui-case-a','ui-case-b','ui-case-a']);
+  expect(Object.keys(plan.definitions)).toHaveLength(2);
+  await page.screenshot({path:'../docs/images/workbench-plans-0.5.png',fullPage:true});
+  await page.getByRole('button',{name:'保存并准备运行',exact:true}).click();
+  await expect(page.locator('h1')).toHaveText('测试执行');
+  expect(await (await request.get('/api/tasks')).json()).toEqual([]);
+  await expect(page.getByRole('button',{name:'开始本次运行',exact:true})).toBeDisabled();
+  await page.getByRole('button',{name:'运行前预检',exact:true}).click();
+  await expect(page.getByText('预检未通过',{exact:true})).toBeVisible();
+  await page.screenshot({path:'../docs/images/workbench-run-0.5.png',fullPage:true});
+  expect(await (await request.get('/api/tasks')).json()).toEqual([]);
+  await nav(page,'用例库');
+  await page.getByRole('searchbox',{name:'搜索用例'}).fill('界面用例 A');
+  await page.getByRole('button',{name:'查看 / 编辑',exact:true}).click();
+  await expect(page.locator('h1')).toHaveText('用例库');
+  await expect(page.getByText('用例库 / 单例编辑',{exact:true})).toBeVisible();
+  await page.getByRole('button',{name:'保存并准备试跑',exact:true}).click();
+  await expect(page.locator('h1')).toHaveText('测试执行');
+  expect(await (await request.get('/api/tasks')).json()).toEqual([]);
 });

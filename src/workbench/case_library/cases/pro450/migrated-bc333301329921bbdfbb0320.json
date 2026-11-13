@@ -62,8 +62,22 @@
     "python_files": [
       "testcases/mycobot_450/test_67_set_color.py"
     ],
+    "remediation": {
+      "covered_source_rows": [],
+      "generated_case_ids": [],
+      "hardware_acceptance": "not_verified",
+      "ledger": "remediation-ledger.json",
+      "remaining_source_rows": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "state": "blocked"
+    },
     "review_reasons": [
-      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+      "源行 30：未支持控制流程 Assign",
+      "源行 57：未支持控制流程 Assign"
     ],
     "rows": [
       2,

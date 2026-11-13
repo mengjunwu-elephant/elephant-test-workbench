@@ -75,8 +75,23 @@
     "python_files": [
       "testcases/mycobot_450/test_81_set_tool_reference.py"
     ],
+    "remediation": {
+      "covered_source_rows": [],
+      "generated_case_ids": [],
+      "hardware_acceptance": "not_verified",
+      "ledger": "remediation-ledger.json",
+      "remaining_source_rows": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "state": "blocked"
+    },
     "review_reasons": [
-      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+      "源行 37：源行 38：需受控运行期表达式：device.coords_init_angles"
     ],
     "rows": [
       2,

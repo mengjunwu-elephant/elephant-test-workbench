@@ -54,6 +54,13 @@ class Task(Base):
     ended_at: Mapped[str | None] = mapped_column(String, nullable=True)
 
 
+class Plan(Base):
+    __tablename__ = 'plans'
+    id: Mapped[str] = mapped_column(String, primary_key=True)
+    document: Mapped[dict] = mapped_column(JSON)
+    updated_at: Mapped[str] = mapped_column(String, default=now)
+
+
 class DeviceLock(Base):
     __tablename__ = "device_locks"
     resource: Mapped[str] = mapped_column(String, primary_key=True)
@@ -121,6 +128,8 @@ class Store:
         # 兼容开发初版 create_all 数据，仅在完整初始结构匹配时登记基线。
         if existing and "alembic_version" not in existing:
             for table in Base.metadata.sorted_tables:
+                if table.name == 'plans':
+                    continue  # 未登记的早期结构仅按0001基线核对；plans由0002创建。
                 if table.name not in existing or {c["name"] for c in inspector.get_columns(table.name)} != set(table.columns.keys()):
                     raise RuntimeError("发现未登记且不匹配的数据库结构；拒绝静默覆盖，请备份后迁移")
             command.stamp(cfg, "0001")

@@ -91,7 +91,7 @@ class Engine:
         self.last_telemetry = 0.0
 
     def event(self, kind, **fields):
-        self.emit({"type": kind, "level": fields.pop("level", "INFO"), **fields})
+        self.emit({"type": kind, "level": fields.pop("level", "INFO"), "entry":getattr(self,"current_entry",{}), "case_id":getattr(self,"current_case_id",None), **fields})
 
     def checkpoint(self):
         if self.control.cancelled.is_set() and not self.restoring:
@@ -159,6 +159,17 @@ class Engine:
         self.event("state", state="running", message="人工确认后继续")
 
     def method(self, name, p, timeout):
+        if name == 'delay':
+            seconds=p.get('seconds',0)
+            if type(seconds) not in (int,float) or not math.isfinite(seconds) or not 0<=seconds<=timeout:
+                raise ValueError('等待时长需为当前超时范围内的有限非负数')
+            self.sleep(seconds)
+            return None
+        if name == 'value_length':
+            value=p.get('value')
+            if not isinstance(value,(str,list,tuple,dict)):
+                raise ValueError('长度检查仅支持字符串、数组或对象')
+            return len(value)
         if name == "wait_motion":
             return self.wait_motion(p.get("timeout", timeout), p.get("poll_interval", 0.1))
         if name == "set_read_verify":
@@ -231,9 +242,11 @@ class Engine:
         return value
 
     def case(self, case, dataset):
+        self.current_entry=case.get("_entry",{})
+        self.current_case_id=case["id"]
         context = {"params": {**case.get("parameters", {}), **dataset}}
         state, error, restore_error = "passed", "", ""
-        self.event("case_start", case_id=case["id"], name=case["name"], parameters=context["params"], message=f"开始用例：{case['name']}")
+        self.event("case_start", case_id=case["id"], entry=case.get('_entry',{}), name=case["name"], parameters=context["params"], message=f"开始用例：{case['name']}")
         try:
             for step in case["steps"]:
                 if step.get("phase") != "restore":
@@ -266,41 +279,48 @@ class Engine:
             unknown = unknown or self.adapter.moving() is not False or (state != "passed" and not restores)
         except Exception:
             unknown = True
-        result = {"case_id": case["id"], "name": case["name"], "parameters": context["params"], "state": "failed" if restore_error else state, "error": error, "restore_error": restore_error, "restored": bool(restores) and not restore_error, "blocked": unknown}
+        result = {"case_id": case["id"], "entry":case.get('_entry',{}), "name": case["name"], "parameters": context["params"], "state": "failed" if restore_error else state, "error": error, "restore_error": restore_error, "restored": bool(restores) and not restore_error, "blocked": unknown}
         self.event("case_result", **result, message="用例完成，恢复与原始结果分别记录")
         return result
 
     def run_cases(self, request, cases):
         results = deque(maxlen=500)
-        counts = {"passed": 0, "failed": 0, "skipped": 0, "stopped": 0}
-        begin, consecutive, cycles = time.monotonic(), 0, 0
-        limit = request.get("repeat", 1) if request["kind"] == "aging" else 1
-        while cycles < limit:
+        counts = {"passed":0,"failed":0,"skipped":0,"stopped":0}
+        begin,consecutive,cycles=time.monotonic(),0,0
+        limit=request.get('repeat',1) if request['kind']=='aging' else 1
+        planned=sum(len(c.get('datasets',[{}])) for c in cases)*limit
+        def finish(state,blocked=False,**extra):
+            completed=sum(counts.values())
+            return {'results':list(results),'counts':counts,'cycles':cycles,'blocked':blocked,'state':state,'planned_instances':planned,'executed_instances':completed,'not_executed':max(0,planned-completed),**extra}
+        def boundary():
             self.checkpoint()
-            if cycles and request["kind"] == "aging" and time.monotonic()-begin >= request["duration_seconds"]:
-                break
             if self.control.paused.is_set():
-                self.event("state", state="paused", message="已在循环边界暂停")
-                while self.control.paused.is_set():
-                    self.sleep(0.1)
-                self.event("state", state="running", message="恢复运行")
-            for case in cases:
-                for dataset in case.get("datasets", [{}]):
-                    result = self.case(case, dataset)
-                    results.append(result)
-                    counts[result["state"]] += 1
-                    consecutive = consecutive + 1 if result["state"] == "failed" else 0
-                    if result["blocked"]:
-                        return {"results": list(results), "counts": counts, "blocked": True, "state": "blocked", "reason": "恢复失败或设备状态不明，停止该设备后续任务"}
-                    self.checkpoint()
-                    self.event("state", state="running", message="恢复完成，继续下一条")
-                    if request["kind"] == "aging" and consecutive >= request.get("max_consecutive_failures", 3):
-                        return {"results": list(results), "counts": counts, "blocked": False, "state": "failed", "reason": "达到连续失败阈值"}
-            cycles += 1
-            self.event("cycle", cycle=cycles, elapsed_seconds=time.monotonic()-begin, message=f"完成第 {cycles} 轮")
-            if request["kind"] == "aging":
-                self.sleep(request.get("interval_ms", 100)/1000)
-        return {"results": list(results), "counts": counts, "cycles": cycles, "blocked": False, "state": "failed" if counts["failed"] else "completed"}
+                self.event('state',state='paused',message='已在用例及恢复完成后的边界暂停')
+                while self.control.paused.is_set():self.sleep(.1)
+                self.event('state',state='running',message='继续执行')
+        try:
+            while cycles<limit:
+                boundary()
+                if cycles and request['kind']=='aging' and time.monotonic()-begin>=request['duration_seconds']:break
+                for case in cases:
+                    for dataset_order,dataset in enumerate(case.get('datasets',[{}])):
+                        boundary()
+                        entry={**case.get('_entry',{}),'dataset_index':case.get('_entry',{}).get('dataset_indices',list(range(len(case.get('datasets',[{}])))))[dataset_order],'dataset_order':dataset_order,'cycle':cycles+1}
+                        result=self.case({**case,'_entry':entry},dataset)
+                        results.append(result);counts[result['state']]+=1
+                        consecutive=consecutive+1 if result['state']=='failed' else 0
+                        if result['blocked']:return finish('blocked',True,reason='恢复失败或设备状态不明，停止后续任务')
+                        if result['state']=='stopped':return finish('stopped')
+                        if result['state']=='failed' and request.get('failure_policy')=='stop':return finish('failed',reason='按计划失败策略停止')
+                        self.checkpoint()
+                        self.event('state',state='running',message='恢复完成，继续下一条')
+                        if request['kind']=='aging' and consecutive>=request.get('max_consecutive_failures',3):return finish('failed',reason='达到连续失败阈值')
+                cycles+=1
+                self.event('cycle',cycle=cycles,elapsed_seconds=time.monotonic()-begin,message=f'完成第 {cycles} 轮')
+                if request['kind']=='aging':self.sleep(request.get('interval_ms',100)/1000)
+        except Cancelled:
+            return finish('stopped')
+        return finish('failed' if counts['failed'] else 'completed')
 
     def latency(self, request):
         samples, blocked, restore_error = deque(maxlen=1000), False, ""
@@ -311,6 +331,8 @@ class Engine:
         if measure_motion and not is_motion:
             raise ValueError("运动完成耗时需要选择运动接口，不能为只读接口伪造运动时间")
         initial = self.adapter.position() if is_motion else None
+        if is_motion and initial is None:
+            raise RuntimeError('初始位置无效，禁止发送运动采样请求')
         try:
             for i in range(request.get("repeat", 1)):
                 self.checkpoint()

@@ -68,8 +68,30 @@
     "python_files": [
       "testcases/mycobot_450/test_73_get_fusion_parameters.py"
     ],
+    "remediation": {
+      "covered_source_rows": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "generated_case_ids": [
+        "scenario-362573c6c736c3a3be78577e",
+        "scenario-dbcfa105165c4f45b35934e1",
+        "scenario-d41563af75c0d54e2c6c6c27",
+        "scenario-b6ff6fd13c025b25295bda57",
+        "scenario-c67770f4b1b5e3bf0a52b8b4",
+        "scenario-34da8658482eaf9f0fddee02"
+      ],
+      "hardware_acceptance": "not_verified",
+      "ledger": "remediation-ledger.json",
+      "remaining_source_rows": [],
+      "state": "superseded"
+    },
     "review_reasons": [
-      "参数已迁入；原 Python 的前置、条件、断言、异常和 fixture 恢复尚需转为本项目步骤，当前禁止执行"
+      "已由分场景定义承接，原聚合定义保留作为来源；请查看整改台账"
     ],
     "rows": [
       2,
@@ -87,6 +109,14 @@
       "sources/testcases/mycobot_450/test_73_get_fusion_parameters.py.txt"
     ],
     "status": "needs_review",
+    "superseded_by": [
+      "scenario-362573c6c736c3a3be78577e",
+      "scenario-dbcfa105165c4f45b35934e1",
+      "scenario-d41563af75c0d54e2c6c6c27",
+      "scenario-b6ff6fd13c025b25295bda57",
+      "scenario-c67770f4b1b5e3bf0a52b8b4",
+      "scenario-34da8658482eaf9f0fddee02"
+    ],
     "test_functions": [
       "test_get_fusion_parameters1",
       "test_get_fusion_parameters_exception"

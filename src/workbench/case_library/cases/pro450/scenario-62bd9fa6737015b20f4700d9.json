@@ -1,0 +1,284 @@
+{
+  "base_shared_revision": 0,
+  "category": "exception",
+  "datasets": [
+    {
+      "ID": 3,
+      "api": "set_fresh_mode",
+      "expect_data": null,
+      "mode": 2,
+      "test_type": "exception",
+      "title": "设置运动模式（超限）"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "scenario-62bd9fa6737015b20f4700d9",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "mode",
+      "expect_data",
+      "test_type"
+    ],
+    "original_model": "mycobot_450",
+    "parent_id": "migrated-045741c970a54c340c923c11",
+    "python_files": [
+      "testcases/mycobot_450/test_6_set_fresh_mode.py"
+    ],
+    "remediation": {
+      "checks": [
+        "source_function_and_filter_mapped",
+        "literal_only_parameter_expansion",
+        "original_assertions_preserved",
+        "fixture_restoration_checked"
+      ],
+      "hardware_acceptance": "not_verified",
+      "state": "converted",
+      "tool": "remediate_case_library.py"
+    },
+    "review_reasons": [],
+    "rows": [
+      4
+    ],
+    "sheet": "set_fresh_mode",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/Mycobot450Base.txt",
+      "sources/testcases/mycobot_450/conftest.py.txt",
+      "sources/testcases/mycobot_450/test_6_set_fresh_mode.py.txt"
+    ],
+    "source_function": "test_set_fresh_mode_exception",
+    "status": "converted_pending_hardware",
+    "test_functions": [
+      "test_set_fresh_mode_exception"
+    ],
+    "workbook": "mycobot_450.xlsx"
+  },
+  "model": "pro450",
+  "name": "设置运动模式（超限） / test_set_fresh_mode_exception",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "set_fresh_mode",
+      "args": [
+        2
+      ],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "MyCobotPro450DataException",
+      "id": "step-1",
+      "kind": "call",
+      "kwargs": {},
+      "message": "",
+      "method": "",
+      "name": "set_fresh_mode",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "result_1",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    },
+    {
+      "actual": null,
+      "api": "set_fresh_mode",
+      "args": [
+        0
+      ],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "step-2",
+      "kind": "call",
+      "kwargs": {},
+      "message": "",
+      "method": "",
+      "name": "恢复 fresh_mode",
+      "parameters": {},
+      "phase": "restore",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    },
+    {
+      "actual": null,
+      "api": "get_fresh_mode",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "step-3",
+      "kind": "read",
+      "kwargs": {},
+      "message": "",
+      "method": "",
+      "name": "读回恢复 fresh_mode",
+      "parameters": {},
+      "phase": "restore",
+      "save_as": "restored_fresh_mode_2",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    },
+    {
+      "actual": {
+        "$ref": "restored_fresh_mode_2"
+      },
+      "api": "",
+      "args": [],
+      "assertion": "value_eq",
+      "expected": 0,
+      "expected_exception": "",
+      "id": "step-4",
+      "kind": "assert",
+      "kwargs": {},
+      "message": "",
+      "method": "",
+      "name": "验证恢复 fresh_mode",
+      "parameters": {},
+      "phase": "restore",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    },
+    {
+      "actual": null,
+      "api": "set_debug_state",
+      "args": [
+        0
+      ],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "step-5",
+      "kind": "call",
+      "kwargs": {},
+      "message": "",
+      "method": "",
+      "name": "恢复 debug_state",
+      "parameters": {},
+      "phase": "restore",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    },
+    {
+      "actual": null,
+      "api": "get_debug_state",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "step-6",
+      "kind": "read",
+      "kwargs": {},
+      "message": "",
+      "method": "",
+      "name": "读回恢复 debug_state",
+      "parameters": {},
+      "phase": "restore",
+      "save_as": "restored_debug_state_5",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    },
+    {
+      "actual": {
+        "$ref": "restored_debug_state_5"
+      },
+      "api": "",
+      "args": [],
+      "assertion": "value_eq",
+      "expected": 0,
+      "expected_exception": "",
+      "id": "step-7",
+      "kind": "assert",
+      "kwargs": {},
+      "message": "",
+      "method": "",
+      "name": "验证恢复 debug_state",
+      "parameters": {},
+      "phase": "restore",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    },
+    {
+      "actual": null,
+      "api": "set_movement_type",
+      "args": [
+        1
+      ],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "step-8",
+      "kind": "call",
+      "kwargs": {},
+      "message": "",
+      "method": "",
+      "name": "恢复 movement_type",
+      "parameters": {},
+      "phase": "restore",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    },
+    {
+      "actual": null,
+      "api": "get_movement_type",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "step-9",
+      "kind": "read",
+      "kwargs": {},
+      "message": "",
+      "method": "",
+      "name": "读回恢复 movement_type",
+      "parameters": {},
+      "phase": "restore",
+      "save_as": "restored_movement_type_8",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    },
+    {
+      "actual": {
+        "$ref": "restored_movement_type_8"
+      },
+      "api": "",
+      "args": [],
+      "assertion": "value_eq",
+      "expected": 1,
+      "expected_exception": "",
+      "id": "step-10",
+      "kind": "assert",
+      "kwargs": {},
+      "message": "",
+      "method": "",
+      "name": "验证恢复 movement_type",
+      "parameters": {},
+      "phase": "restore",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

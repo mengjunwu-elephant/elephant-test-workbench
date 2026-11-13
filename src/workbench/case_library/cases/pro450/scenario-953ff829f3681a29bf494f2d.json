@@ -1,0 +1,139 @@
+{
+  "base_shared_revision": 0,
+  "category": "normal",
+  "datasets": [
+    {
+      "ID": 1,
+      "api": "get_collision_threshold",
+      "expect_data": "[100,100,100,100,100,100]",
+      "test_type": "normal",
+      "title": "正确获取碰撞阈值"
+    }
+  ],
+  "description": "来自旧用例库的一次性迁移。原始字符串与 JSON 类型保持原样，未执行 eval 或旧测试。",
+  "enabled": false,
+  "id": "scenario-953ff829f3681a29bf494f2d",
+  "method_versions": {},
+  "migration": {
+    "columns": [
+      "ID",
+      "title",
+      "api",
+      "expect_data",
+      "test_type"
+    ],
+    "original_model": "mycobot_450",
+    "parent_id": "migrated-398dd02abbb11f1b26090bb3",
+    "python_files": [
+      "testcases/mycobot_450/test_64_get_collision_threshold.py"
+    ],
+    "remediation": {
+      "checks": [
+        "source_function_and_filter_mapped",
+        "literal_only_parameter_expansion",
+        "original_assertions_preserved",
+        "fixture_restoration_checked"
+      ],
+      "hardware_acceptance": "not_verified",
+      "state": "converted",
+      "tool": "remediate_case_library.py"
+    },
+    "review_reasons": [],
+    "rows": [
+      2
+    ],
+    "sheet": "get_collision_threshold",
+    "source_files": [
+      "sources/conftest.py.txt",
+      "sources/dependencies/Mycobot450Base.txt",
+      "sources/testcases/mycobot_450/conftest.py.txt",
+      "sources/testcases/mycobot_450/test_64_get_collision_threshold.py.txt"
+    ],
+    "source_function": "test_get_collision_threshold",
+    "status": "converted_pending_hardware",
+    "test_functions": [
+      "test_get_collision_threshold"
+    ],
+    "workbook": "mycobot_450.xlsx"
+  },
+  "model": "pro450",
+  "name": "正确获取碰撞阈值 / test_get_collision_threshold",
+  "parameters": {},
+  "revision": 1,
+  "sdk_requirement": "",
+  "shared_id": "",
+  "status": "draft",
+  "steps": [
+    {
+      "actual": null,
+      "api": "get_collision_threshold",
+      "args": [],
+      "assertion": "eq",
+      "expected": null,
+      "expected_exception": "",
+      "id": "step-1",
+      "kind": "read",
+      "kwargs": {},
+      "message": "",
+      "method": "",
+      "name": "get_collision_threshold",
+      "parameters": {},
+      "phase": "execute",
+      "save_as": "result_1",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    },
+    {
+      "actual": {
+        "$ref": "result_1"
+      },
+      "api": "",
+      "args": [],
+      "assertion": "instance",
+      "expected": "list",
+      "expected_exception": "",
+      "id": "step-2",
+      "kind": "assert",
+      "kwargs": {},
+      "message": "",
+      "method": "",
+      "name": "原类型断言",
+      "parameters": {},
+      "phase": "verify",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    },
+    {
+      "actual": {
+        "$ref": "result_1"
+      },
+      "api": "",
+      "args": [],
+      "assertion": "value_eq",
+      "expected": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "expected_exception": "",
+      "id": "step-3",
+      "kind": "assert",
+      "kwargs": {},
+      "message": "",
+      "method": "",
+      "name": "原值相等断言",
+      "parameters": {},
+      "phase": "verify",
+      "save_as": "",
+      "selector": [],
+      "timeout": 15,
+      "tolerance": 0.1
+    }
+  ]
+}

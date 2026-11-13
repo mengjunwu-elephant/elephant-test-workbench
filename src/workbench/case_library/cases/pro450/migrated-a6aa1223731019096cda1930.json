@@ -29,6 +29,16 @@
     "python_files": [
       "testcases/mycobot_450/test_3_get_modified_version.py"
     ],
+    "remediation": {
+      "covered_source_rows": [
+        2
+      ],
+      "generated_case_ids": [],
+      "hardware_acceptance": "not_verified",
+      "ledger": "remediation-ledger.json",
+      "remaining_source_rows": [],
+      "state": "converted_readonly_existing"
+    },
     "review_reasons": [],
     "rows": [
       2
